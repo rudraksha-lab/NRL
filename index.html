@@ -9,121 +9,106 @@
 <style>
 
 body{
-    margin:0;
-    font-family: Georgia, serif;
-    background: linear-gradient(135deg,#f5e6d3,#ffffff);
+margin:0;
+font-family: Georgia, serif;
+background: linear-gradient(135deg,#f5e6d3,#ffffff);
 }
-
-/* Certificate box */
 
 .certificate{
-    max-width:900px;
-    margin:40px auto;
-    background:white;
-    padding:35px;
-    border-radius:12px;
-    border:4px solid #c87a2b;
-    box-shadow:0 0 25px rgba(0,0,0,0.15);
+max-width:900px;
+margin:40px auto;
+background:white;
+padding:35px;
+border-radius:12px;
+border:4px solid #c87a2b;
+box-shadow:0 0 25px rgba(0,0,0,0.15);
 }
 
-/* Header */
-
 .header{
-    text-align:center;
-    border-bottom:2px solid #c87a2b;
-    padding-bottom:15px;
+text-align:center;
+border-bottom:2px solid #c87a2b;
+padding-bottom:15px;
 }
 
 .header h1{
-    margin:0;
-    font-size:38px;
-    color:#8b4513;
+margin:0;
+font-size:38px;
+color:#8b4513;
 }
 
 .header p{
-    margin:5px;
-    color:#555;
+margin:5px;
+color:#555;
 }
-
-/* Description */
 
 .description{
-    margin-top:20px;
-    text-align:center;
-    color:#444;
+margin-top:20px;
+text-align:center;
+color:#444;
 }
 
-/* Images */
-
 .images{
-    display:flex;
-    justify-content:center;
-    gap:50px;
-    margin-top:30px;
+display:flex;
+justify-content:center;
+gap:50px;
+margin-top:30px;
 }
 
 .image-box{
-    text-align:center;
+text-align:center;
 }
 
 .images img{
-    width:180px;
-    height:180px;
-    border-radius:10px;
-    border:2px solid #c87a2b;
-    padding:6px;
-    background:white;
+width:180px;
+height:180px;
+border-radius:10px;
+border:2px solid #c87a2b;
+padding:6px;
+background:white;
 }
 
-/* Table */
-
 table{
-    width:100%;
-    margin-top:30px;
-    border-collapse:collapse;
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
 }
 
 td{
-    padding:12px;
-    border-bottom:1px solid #ddd;
+padding:12px;
+border-bottom:1px solid #ddd;
 }
 
 .label{
-    font-weight:bold;
-    color:#8b4513;
-    width:40%;
+font-weight:bold;
+color:#8b4513;
+width:40%;
 }
 
-.value{
-    color:#333;
+.observation, .conclusion, .moneyback{
+margin-top:20px;
+padding:15px;
+border-left:5px solid;
 }
-
-/* Observation */
 
 .observation{
-    margin-top:25px;
-    padding:15px;
-    background:#fff7ef;
-    border-left:5px solid #c87a2b;
+background:#fff7ef;
+border-color:#c87a2b;
 }
 
-/* Money Back */
+.conclusion{
+background:#eaf7ea;
+border-color:green;
+}
 
 .moneyback{
-    margin-top:20px;
-    padding:15px;
-    background:#eaf7ea;
-    border-left:5px solid green;
-    font-weight:bold;
-    color:#1b5e20;
+background:#e3f2fd;
+border-color:#1565c0;
 }
 
-/* Footer */
-
 .footer{
-    text-align:center;
-    margin-top:25px;
-    color:#777;
+text-align:center;
+margin-top:25px;
+color:#777;
 }
 
 </style>
@@ -133,96 +118,147 @@ td{
 
 <div class="certificate">
 
-    <!-- Header -->
+<div class="header">
+<h1>Nepal Rudraksha Lab</h1>
+<p>Kathmandu, Nepal</p>
+</div>
 
-    <div class="header">
-        <h1>Nepal Rudraksha Lab</h1>
-        <p>Kathmandu, Nepal</p>
-    </div>
+<div class="description">
+This certificate confirms laboratory verification of the Rudraksha bead based on
+visual and microscopic examination of mukhi structure and natural characteristics.
+</div>
 
+<div class="images">
 
-    <!-- Original description -->
+<div class="image-box">
+<img id="frontImg">
+<p>Front View</p>
+</div>
 
-    <div class="description">
-        This certificate verifies that the Rudraksha bead shown below has been carefully examined 
-        and analyzed by Nepal Rudraksha Lab. The bead's structure, mukhi lines, and natural characteristics 
-        confirm its authenticity based on laboratory observation standards.
-    </div>
-
-
-    <!-- Images from GitHub -->
-
-    <div class="images">
-
-        <div class="image-box">
-            <!-- CHANGE IMAGE NAME ONLY -->
-            <img src="front.jpg">
-            <p>Front View</p>
-        </div>
-
-        <div class="image-box">
-            <!-- CHANGE IMAGE NAME ONLY -->
-            <img src="back.jpg">
-            <p>Back View</p>
-        </div>
-
-    </div>
-
-
-    <!-- Product details -->
-
-    <table>
-
-        <tr>
-            <td class="label">Product No.</td>
-            <td class="value">025-Ne09-001</td>
-        </tr>
-
-        <tr>
-            <td class="label">Dimensions (mm)</td>
-            <td class="value">22.3 × 21.2 × 21.9</td>
-        </tr>
-
-        <tr>
-            <td class="label">Weight</td>
-            <td class="value">3.45 grams</td>
-        </tr>
-
-        <tr>
-            <td class="label">Number of Faces</td>
-            <td class="value">9 Mukhi</td>
-        </tr>
-
-        <tr>
-            <td class="label">Shape</td>
-            <td class="value">Round / Spherical</td>
-        </tr>
-
-    </table>
-
-
-    <!-- Observation -->
-
-    <div class="observation">
-        Test Observation: The bead contains <b>9 natural mukhi lines</b> under magnification. The bead has been confirmed to be natural, with no evidence of tampering or artificial materials detected on its surface.
-    </div>
-
-
-    <!-- Money Back Guarantee -->
-
-    <div class="moneyback">
-        Money-Back Guarantee: If this Rudraksha bead is proven to be duplicate, artificial, or non-genuine, it shall be eligible for a full refund, subject to verification.
-    </div>
-
-
-    <!-- Footer -->
-
-    <div class="footer">
-        Issued and Verified by Nepal Rudraksha Lab, Kathmandu, Nepal
-    </div>
-
+<div class="image-box">
+<img id="backImg">
+<p>Back View</p>
+</div>
 
 </div>
+
+<table>
+
+<tr>
+<td class="label">Product No.</td>
+<td id="product"></td>
+</tr>
+
+<tr>
+<td class="label">Dimensions (mm)</td>
+<td id="dimensions"></td>
+</tr>
+
+<tr>
+<td class="label">Weight</td>
+<td id="weight"></td>
+</tr>
+
+<tr>
+<td class="label">Number of Mukhi</td>
+<td id="mukhi"></td>
+</tr>
+
+<tr>
+<td class="label">Shape</td>
+<td id="shape"></td>
+</tr>
+
+</table>
+
+<div class="observation" id="observation"></div>
+
+<div class="conclusion" id="conclusion"></div>
+
+<div class="moneyback">
+Money-Back Guarantee: If this Rudraksha bead is proven artificial, duplicate, or non-genuine,
+Nepal Rudraksha Lab guarantees 100% refund after verification.
+</div>
+
+<div class="footer">
+Issued and Verified by Nepal Rudraksha Lab
+</div>
+
+</div>
+
+<script>
+
+// Get parameter function
+
+function getParam(name){
+const urlParams = new URLSearchParams(window.location.search);
+return urlParams.get(name);
+}
+
+// Convert number to words
+
+function numberToWords(num){
+
+const words = [
+"Zero","One","Two","Three","Four","Five",
+"Six","Seven","Eight","Nine","Ten",
+"Eleven","Twelve","Thirteen","Fourteen"
+];
+
+return words[num] || num;
+}
+
+
+// Read from query
+
+const product = getParam("product");
+const weight = getParam("weight");
+const dimensions = getParam("dim");
+const mukhi = getParam("mukhi");
+const shape = getParam("shape");
+
+const front = getParam("front");
+const back = getParam("back");
+
+
+// Set values
+
+document.getElementById("product").textContent = product || "Not Provided";
+
+document.getElementById("weight").textContent = weight || "Not Provided";
+
+document.getElementById("dimensions").textContent = dimensions || "Not Provided";
+
+document.getElementById("mukhi").textContent = mukhi ? mukhi + " Mukhi" : "Not Provided";
+
+document.getElementById("shape").textContent = shape || "Not Provided";
+
+
+// Set images
+
+if(front)
+document.getElementById("frontImg").src = front;
+
+if(back)
+document.getElementById("backImg").src = back;
+
+
+// Observation
+
+if(mukhi)
+document.getElementById("observation").innerHTML =
+"Test Observation: The bead contains <b>" + mukhi + " natural mukhi lines</b> under magnification.";
+
+
+// Conclusion
+
+if(mukhi)
+document.getElementById("conclusion").innerHTML =
+"Conclusion: This bead is verified as a genuine <b>" +
+numberToWords(parseInt(mukhi)) +
+" Mukhi Rudraksha</b> based on laboratory examination.";
+
+</script>
 
 </body>
 </html>
