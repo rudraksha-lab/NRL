@@ -604,9 +604,10 @@ body::before{
                 <img
                 id="front-img"
                 src="12-02-Front.jpg"
-                alt="Front View">
+                alt="Front View"
+                onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22%3E%3Crect width=%22600%22 height=%22600%22 fill=%22%23E9F0FA%22/%3E%3Ctext x=%2250%25%22 y=%2242%25%22 font-size=%2242%22 fill=%22%232C7DA0%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2272%25%22 font-size=%2212%22 fill=%22%232C4A6E%22 text-anchor=%22middle%22%3EFront View%3C/text%3E%3C/svg%3E';">
 
-                <div class="image-label">
+                <div class="image-label" id="front-label">
                     Front View <span>· 12 Mukhi ·</span> Natural Surface
                 </div>
 
@@ -617,9 +618,10 @@ body::before{
                 <img
                 id="back-img"
                 src="12-02-Back.jpg"
-                alt="Back View">
+                alt="Back View"
+                onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22%3E%3Crect width=%22600%22 height=%22600%22 fill=%22%23E9F0FA%22/%3E%3Ctext x=%2250%25%22 y=%2242%25%22 font-size=%2242%22 fill=%22%232C7DA0%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🌀%3C/text%3E%3Ctext x=%2250%25%22 y=%2272%25%22 font-size=%2212%22 fill=%22%232C4A6E%22 text-anchor=%22middle%22%3EBack View%3C/text%3E%3C/svg%3E';">
 
-                <div class="image-label">
+                <div class="image-label" id="back-label">
                     Back View <span>· Natural Lines ·</span> Unaltered
                 </div>
 
@@ -649,7 +651,7 @@ body::before{
                     </div>
 
                     <div class="detail-value">
-                        <span class="id-pill">026-N12-002</span>
+                        <span class="id-pill" id="product-no">026-N12-002</span>
                     </div>
                 </div>
 
@@ -659,7 +661,7 @@ body::before{
                         Dimensions (mm)
                     </div>
 
-                    <div class="detail-value">
+                    <div class="detail-value" id="dimensions-value">
                         27.3 × 22.4 × 17.1
                     </div>
                 </div>
@@ -670,7 +672,7 @@ body::before{
                         Weight
                     </div>
 
-                    <div class="detail-value">
+                    <div class="detail-value" id="weight-value">
                         3.87 g
                     </div>
                 </div>
@@ -681,7 +683,7 @@ body::before{
                         Mukhi Count
                     </div>
 
-                    <div class="detail-value">
+                    <div class="detail-value" id="mukhi-value">
                         12 Mukhi
                     </div>
                 </div>
@@ -692,7 +694,7 @@ body::before{
                         Shape
                     </div>
 
-                    <div class="detail-value">
+                    <div class="detail-value" id="shape-value">
                         Oval
                     </div>
                 </div>
@@ -703,7 +705,7 @@ body::before{
                         Origin
                     </div>
 
-                    <div class="detail-value">
+                    <div class="detail-value" id="origin-value">
                         Nepal
                     </div>
                 </div>
@@ -725,7 +727,7 @@ body::before{
 
         <div class="obs-panel">
 
-            <p class="obs-text">
+            <p class="obs-text" id="obs-paragraph">
                 Under high-magnification analysis, the bead exhibits 12 distinct,
                 naturally formed mukhi lines with no evidence of artificial scoring
                 or chemical treatment. Surface texture and internal structure are
@@ -733,7 +735,7 @@ body::before{
                 No synthetic resin, pigment dyes, or tampering detected.
             </p>
 
-            <div class="obs-verdict">
+            <div class="obs-verdict" id="verdict-box">
                 <i class="fas fa-check-circle"></i>
                 Certified Genuine — All authenticity protocols passed.
                 Twelve Mukhi Rudraksha confirmed by gemological analysis.
@@ -783,6 +785,65 @@ body::before{
 
 </div>
 </div>
+
+<!-- DYNAMIC SCRIPT -->
+<script>
+(function() {
+    const params = new URLSearchParams(window.location.search);
+
+    function getParam(name, fallback) {
+        const value = params.get(name);
+        return value && value.trim() !== "" ? value : fallback;
+    }
+
+    // Read all parameters
+    const mukhi = getParam("mukhi", "12");
+    const product = getParam("product", "026-N12-002");
+    const dim = getParam("dim", "27.3 × 22.4 × 17.1");
+    const weight = getParam("weight", "3.87 g");
+    const shape = getParam("shape", "Oval");
+    const origin = getParam("origin", "Nepal");
+    const frontImg = getParam("front", "12-02-Front.jpg");
+    const backImg = getParam("back", "12-02-Back.jpg");
+
+    // Update details panel
+    document.getElementById("product-no").textContent = product;
+    document.getElementById("dimensions-value").textContent = dim;
+    document.getElementById("weight-value").textContent = weight;
+    document.getElementById("mukhi-value").textContent = mukhi + " Mukhi";
+    document.getElementById("shape-value").textContent = shape;
+    document.getElementById("origin-value").textContent = origin;
+
+    // Update images
+    const frontEl = document.getElementById("front-img");
+    const backEl = document.getElementById("back-img");
+    frontEl.src = frontImg;
+    backEl.src = backImg;
+    frontEl.alt = "Front View (" + mukhi + " Mukhi)";
+    backEl.alt = "Back View (" + mukhi + " Mukhi)";
+
+    // Update image labels
+    document.getElementById("front-label").innerHTML =
+        "Front View <span>· " + mukhi + " Mukhi ·</span> Natural Surface";
+    document.getElementById("back-label").innerHTML =
+        "Back View <span>· Natural Lines ·</span> Unaltered";
+
+    // Update observation paragraph
+    document.getElementById("obs-paragraph").innerHTML =
+        "Under high-magnification analysis, the bead exhibits " + mukhi +
+        " distinct, naturally formed mukhi lines with no evidence of artificial scoring " +
+        "or chemical treatment. Surface texture and internal structure are " +
+        "consistent with authentic <em>Elaeocarpus ganitrus</em> origin. " +
+        "No synthetic resin, pigment dyes, or tampering detected.";
+
+    // Update verdict box
+    document.getElementById("verdict-box").innerHTML =
+        '<i class="fas fa-check-circle"></i> ' +
+        "Certified Genuine — All authenticity protocols passed. " +
+        mukhi + " Mukhi Rudraksha confirmed by gemological analysis.";
+
+})();
+</script>
 
 </body>
 </html>
