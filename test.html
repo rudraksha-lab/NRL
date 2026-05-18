@@ -148,11 +148,11 @@ body::before{
 
 /* --- TINY SYMBOL CLASS FOR CHANDRA & SURYA --- */
 .tiny-symbol{
-    height: 1.99rem;       /* Perfectly fits brand-chip font size */
+    height: 1.99rem;       /* Set to exactly 1.99rem as requested */
     width: auto;
     vertical-align: middle;
     display: inline-block;
-    margin: 0 1px 2px 1px; /* Subtle spacing */
+    margin: 0 1px 2px 1px;
     image-rendering: optimizeQuality; 
 }
 
@@ -161,7 +161,7 @@ body::before{
     align-items:center;
     gap:.5rem;
     background:var(--blue-sheen);
-    border:1px solid var(--border-blue);
+    /* BORDER REMOVED completely - no lines around the box */
     color:var(--blue-accent);
     font-size:.65rem;
     font-weight:600;
