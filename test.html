@@ -84,45 +84,10 @@ body::before{
     overflow:hidden;
 }
 
-/* corner ornaments */
-
-.frame-inner::before,
-.frame-inner::after,
-.frame-bottom::before,
-.frame-bottom::after{
-    content:"";
-    position:absolute;
-    width:54px;
-    height:54px;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E%3Cpath d='M3 49 L3 3 L49 3' stroke='%232C7DA0' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M3 18 Q3 3 18 3' stroke='%2361A5C2' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='3' cy='3' r='2.8' fill='%232C7DA0'/%3E%3C/svg%3E");
-    background-size:contain;
-    background-repeat:no-repeat;
-    z-index:5;
-    pointer-events:none;
-}
-
-.frame-inner::before{
-    top:-1px;
-    left:-1px;
-}
-
-.frame-inner::after{
-    top:-1px;
-    right:-1px;
-    transform:rotate(90deg);
-}
-
-.frame-bottom::before{
-    bottom:-1px;
-    left:-1px;
-    transform:rotate(270deg);
-}
-
-.frame-bottom::after{
-    bottom:-1px;
-    right:-1px;
-    transform:rotate(180deg);
-}
+/* ===================================================== */
+/* ALL L-SHAPED CORNER ORNAMENTS (TOP LEFT, TOP RIGHT, 
+   BOTTOM LEFT, BOTTOM RIGHT) HAVE BEEN REMOVED          */
+/* ===================================================== */
 
 /* header */
 
