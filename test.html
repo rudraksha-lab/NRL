@@ -435,173 +435,41 @@ color:var(--text-secondary);
 opacity:.7;
 }
 
-/* DYNAMIC LINK TOOL - subtle addition, original design preserved */
-.dynamic-tool{
-margin-top: 1.2rem;
-background: rgba(44,125,160,0.04);
-border-top: 1px solid var(--border-blue);
-padding: 1.2rem 2rem;
-backdrop-filter: blur(2px);
+@media(max-width:900px){
+
+.image-gallery{
+width:calc(100% + 4rem);
+margin-left:-2rem;
+margin-right:-2rem;
 }
 
-.tool-header{
-display: flex;
-align-items: center;
-justify-content: space-between;
-flex-wrap: wrap;
-gap: 0.8rem;
-margin-bottom: 1rem;
-cursor: pointer;
-user-select: none;
-}
-
-.tool-title{
-font-size: 0.7rem;
-font-weight: 600;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: var(--blue-accent);
-display: flex;
-align-items: center;
-gap: 0.5rem;
-}
-
-.tool-toggle-icon{
-transition: transform 0.2s ease;
-color: var(--blue-accent);
-font-size: 0.8rem;
-}
-
-.tool-panel{
-display: none;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 1rem 1.5rem;
-background: white;
-border: 1px solid var(--border);
-padding: 1.2rem;
-margin-top: 0.5rem;
-border-radius: 16px;
-box-shadow: 0 6px 12px rgba(0,0,0,0.03);
-}
-
-.tool-panel.open{
-display: grid;
-}
-
-.tool-field{
-display: flex;
-flex-direction: column;
-gap: 0.3rem;
-}
-
-.tool-field label{
-font-size: 0.65rem;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 0.08em;
-color: var(--text-secondary);
-}
-
-.tool-field input, .tool-field select{
-background: var(--blue-sheen);
-border: 1px solid var(--border);
-padding: 0.5rem 0.7rem;
-font-family: 'Jost', sans-serif;
-font-size: 0.8rem;
-border-radius: 12px;
-transition: 0.2s;
-}
-
-.tool-field input:focus, .tool-field select:focus{
-outline: none;
-border-color: var(--blue-accent);
-box-shadow: 0 0 0 2px rgba(44,125,160,0.2);
-}
-
-.tool-actions{
-display: flex;
-flex-wrap: wrap;
-gap: 0.8rem;
-align-items: center;
-margin-top: 0.5rem;
-grid-column: 1 / -1;
-}
-
-.btn-dynamic{
-background: var(--blue-accent);
-border: none;
-color: white;
-padding: 0.5rem 1.2rem;
-border-radius: 40px;
-font-weight: 500;
-font-size: 0.7rem;
-letter-spacing: 0.05em;
-cursor: pointer;
-display: inline-flex;
-align-items: center;
-gap: 0.5rem;
-transition: 0.2s;
-font-family: 'Jost', sans-serif;
-}
-
-.btn-dynamic.outline{
-background: transparent;
-border: 1px solid var(--blue-accent);
-color: var(--blue-accent);
-}
-
-.btn-dynamic:hover{
-transform: translateY(-2px);
-filter: brightness(1.02);
-box-shadow: 0 4px 10px rgba(44,125,160,0.2);
-}
-
-.link-preview{
-background: var(--bg-secondary);
-font-size: 0.7rem;
-padding: 0.5rem 0.9rem;
-border-radius: 48px;
-font-family: monospace;
-word-break: break-all;
-flex: 1;
-color: var(--text-primary);
-border: 1px solid var(--border-blue);
-}
-
-.copy-feedback{
-font-size: 0.65rem;
-color: #1E6B3B;
-background: rgba(30,107,59,0.1);
-padding: 0.2rem 0.8rem;
-border-radius: 20px;
-white-space: nowrap;
 }
 
 @media(max-width:700px){
+
 .cert-body{
 padding:1.3rem;
 }
+
 .image-gallery{
 width:calc(100% + 3rem);
 margin-left:-1.5rem;
 margin-right:-1.5rem;
 gap:.25rem;
 }
-.dynamic-tool{
-padding: 1rem;
-}
-.tool-panel{
-grid-template-columns: 1fr;
-}
+
 }
 
 @media(max-width:560px){
+
 .handwritten-logo{
 font-size:clamp(1.4rem,8vw,2rem);
 }
+
 .cert-header{
 padding:1.4rem .8rem 1rem;
 }
+
 .image-gallery{
 grid-template-columns:1fr 1fr;
 gap:.12rem;
@@ -609,14 +477,18 @@ width:calc(100% + 2.2rem);
 margin-left:-1.1rem;
 margin-right:-1.1rem;
 }
+
 .details-grid{
 grid-template-columns:1fr 1fr;
 gap:.8rem;
 }
+
 .cert-footer{
 padding:1rem;
 }
+
 }
+
 </style>
 </head>
 
@@ -852,261 +724,99 @@ Nepal Rudraksha Lab
 </div>
 </div>
 
-<!-- DYNAMIC LINK GENERATOR TOOL (fully preserves design, adds edit & share) -->
-<div class="dynamic-tool">
-<div class="tool-header" id="toolHeader">
-<div class="tool-title">
-<i class="fas fa-link"></i> DYNAMIC CERTIFICATE LINK
-</div>
-<i class="fas fa-chevron-down tool-toggle-icon" id="toggleIcon"></i>
-</div>
-<div class="tool-panel" id="toolPanel">
-<div class="tool-field">
-<label>Mukhi Count</label>
-<input type="number" id="editMukhi" value="1" min="1" step="1">
-</div>
-<div class="tool-field">
-<label>Dimensions (mm)</label>
-<input type="text" id="editDims" placeholder="e.g., 27.3x22.4x17.1" value="27.3x22.4x17.1">
-</div>
-<div class="tool-field">
-<label>Weight (g)</label>
-<input type="text" id="editWeight" placeholder="3.87" value="3.87">
-</div>
-<div class="tool-field">
-<label>Certificate No.</label>
-<input type="text" id="editCertno" value="026-N12-002">
-</div>
-<div class="tool-field">
-<label>Shape</label>
-<input type="text" id="editShape" value="Oval">
-</div>
-<div class="tool-field">
-<label>Origin</label>
-<input type="text" id="editOrigin" value="Nepal">
-</div>
-<div class="tool-field">
-<label>Front Image URL</label>
-<input type="text" id="editFrontImg" value="12-02-Front.jpg">
-</div>
-<div class="tool-field">
-<label>Back Image URL</label>
-<input type="text" id="editBackImg" value="12-02-Back.jpg">
-</div>
-<div class="tool-actions">
-<button class="btn-dynamic" id="applyBtn"><i class="fas fa-sync-alt"></i> Update Certificate & Link</button>
-<button class="btn-dynamic outline" id="copyLinkBtn"><i class="fas fa-copy"></i> Copy Dynamic Link</button>
-<div class="link-preview" id="linkPreview">https://...?mukhi=1&dims=27.3x22.4x17.1&weight=3.87&...</div>
-<div id="copyFeedback" class="copy-feedback" style="display: none;">Copied!</div>
-</div>
-</div>
-</div>
-
 <script>
   (function() {
-    // DOM elements
+    // Helper: get query parameter
+    function getParam(name, defaultValue = '') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const val = urlParams.get(name);
+      if (val !== null && val.trim() !== '') return decodeURIComponent(val.trim());
+      return defaultValue;
+    }
+
+    // --- Read all parameters ---
+    let mukhiRaw = getParam('mukhi', '1');
+    let mukhiNum = parseInt(mukhiRaw, 10);
+    if (isNaN(mukhiNum)) mukhiNum = 1;
+    const mukhiDisplay = mukhiNum.toString();
+
+    let dimsRaw = getParam('dims', '27.3x22.4x17.1');
+    let dimsFormatted = dimsRaw;
+    if (dimsRaw && !dimsRaw.includes('×')) {
+      dimsFormatted = dimsRaw.replace(/x/gi, ' × ');
+    }
+    dimsFormatted = dimsFormatted.replace(/\s*×\s*/g, ' × ');
+
+    let weightRaw = getParam('weight', '3.87');
+    let weightFormatted = weightRaw;
+    if (!weightRaw.toLowerCase().includes('g')) {
+      weightFormatted = weightRaw + ' g';
+    }
+
+    let certNo = getParam('certno', '026-N12-002');
+    let shapeVal = getParam('shape', 'Oval');
+    let originVal = getParam('origin', 'Nepal');
+    let frontImgUrl = getParam('front', '12-02-Front.jpg');
+    let backImgUrl = getParam('back', '12-02-Back.jpg');
+
+    // --- Update DOM elements ---
+    const mukhiDetailElem = document.getElementById('mukhi-count-value');
+    if (mukhiDetailElem) {
+      mukhiDetailElem.innerText = mukhiDisplay + (mukhiNum === 1 ? ' Mukhi' : ' Mukhis');
+    }
+
+    const certNoElem = document.getElementById('cert-number');
+    if (certNoElem) certNoElem.innerText = certNo;
+
+    const dimElem = document.getElementById('dimension-value');
+    if (dimElem) dimElem.innerText = dimsFormatted;
+
+    const weightElem = document.getElementById('weight-value');
+    if (weightElem) weightElem.innerText = weightFormatted;
+
+    const shapeElem = document.getElementById('shape-value');
+    if (shapeElem) shapeElem.innerText = shapeVal;
+
+    const originElem = document.getElementById('origin-value');
+    if (originElem) originElem.innerText = originVal;
+
     const frontImg = document.getElementById('front-img');
     const backImg = document.getElementById('back-img');
-    const certSpan = document.getElementById('cert-number');
-    const dimensionSpan = document.getElementById('dimension-value');
-    const weightSpan = document.getElementById('weight-value');
-    const mukhiCountSpan = document.getElementById('mukhi-count-value');
-    const shapeSpan = document.getElementById('shape-value');
-    const originSpan = document.getElementById('origin-value');
-    const frontMukhiLabelSpan = document.getElementById('front-mukhi-label');
+    if (frontImg && frontImgUrl) frontImg.src = frontImgUrl;
+    if (backImg && backImgUrl) backImg.src = backImgUrl;
+
+    const frontMukhiSpan = document.getElementById('front-mukhi-label');
+    if (frontMukhiSpan) {
+      frontMukhiSpan.innerHTML = `· ${mukhiDisplay} Mukhi ·`;
+    }
+
+    // Observation text (dynamic mukhi line)
     const obsTextElem = document.getElementById('obs-text-main');
+    if (obsTextElem) {
+      let lineGrammar = (mukhiNum === 1) ? 'line' : 'lines';
+      let mukhiDescriptor = (mukhiNum === 1) 
+        ? 'Single distinct, naturally formed mukhi line' 
+        : `${mukhiDisplay} distinct, naturally formed mukhi ${lineGrammar}`;
+      const suffix = " with no evidence of artificial scoring or chemical treatment. Surface texture and internal structure are consistent with authentic <em>Elaeocarpus ganitrus</em> origin. No synthetic resin, pigment dyes, or tampering detected and the bead was naturally unjoined to a higher face rudraksha bead but grew inside the same fruit.";
+      obsTextElem.innerHTML = `Under high-magnification analysis, the bead exhibits ${mukhiDescriptor}${suffix}`;
+    }
+
     const verdictSpan = document.getElementById('verdict-text');
-    
-    // edit inputs
-    const editMukhi = document.getElementById('editMukhi');
-    const editDims = document.getElementById('editDims');
-    const editWeight = document.getElementById('editWeight');
-    const editCertno = document.getElementById('editCertno');
-    const editShape = document.getElementById('editShape');
-    const editOrigin = document.getElementById('editOrigin');
-    const editFrontImg = document.getElementById('editFrontImg');
-    const editBackImg = document.getElementById('editBackImg');
-    
-    const applyBtn = document.getElementById('applyBtn');
-    const copyLinkBtn = document.getElementById('copyLinkBtn');
-    const linkPreviewSpan = document.getElementById('linkPreview');
-    const copyFeedbackDiv = document.getElementById('copyFeedback');
-    
-    // helper to update certificate display from current input values
-    function updateCertificateFromInputs() {
-      let mukhi = parseInt(editMukhi.value, 10);
-      if (isNaN(mukhi)) mukhi = 1;
-      const mukhiDisplay = mukhi.toString();
-      
-      // dimensions
-      let dimsRaw = editDims.value.trim();
-      let dimsFormatted = dimsRaw;
-      if (dimsRaw && !dimsRaw.includes('×')) {
-        dimsFormatted = dimsRaw.replace(/x/gi, ' × ');
-      }
-      dimsFormatted = dimsFormatted.replace(/\s*×\s*/g, ' × ');
-      
-      // weight
-      let weightRaw = editWeight.value.trim();
-      let weightFormatted = weightRaw;
-      if (!weightRaw.toLowerCase().includes('g')) {
-        weightFormatted = weightRaw + ' g';
-      }
-      
-      // certificate #
-      let certNo = editCertno.value.trim() || "026-N12-002";
-      // shape & origin
-      let shapeVal = editShape.value.trim() || "Oval";
-      let originVal = editOrigin.value.trim() || "Nepal";
-      
-      // images
-      let frontUrl = editFrontImg.value.trim() || "12-02-Front.jpg";
-      let backUrl = editBackImg.value.trim() || "12-02-Back.jpg";
-      
-      // apply to DOM
-      if (mukhiCountSpan) mukhiCountSpan.innerText = mukhiDisplay + (mukhi === 1 ? ' Mukhi' : ' Mukhis');
-      if (certSpan) certSpan.innerText = certNo;
-      if (dimensionSpan) dimensionSpan.innerText = dimsFormatted;
-      if (weightSpan) weightSpan.innerText = weightFormatted;
-      if (shapeSpan) shapeSpan.innerText = shapeVal;
-      if (originSpan) originSpan.innerText = originVal;
-      if (frontImg) frontImg.src = frontUrl;
-      if (backImg) backImg.src = backUrl;
-      if (frontMukhiLabelSpan) frontMukhiLabelSpan.innerHTML = `· ${mukhiDisplay} Mukhi ·`;
-      
-      // update observation text (mukhi line)
-      if (obsTextElem) {
-        let lineGrammar = (mukhi === 1) ? 'line' : 'lines';
-        let mukhiDescriptor = (mukhi === 1) ? 'Single distinct, naturally formed mukhi line' : `${mukhiDisplay} distinct, naturally formed mukhi ${lineGrammar}`;
-        const suffix = " with no evidence of artificial scoring or chemical treatment. Surface texture and internal structure are consistent with authentic <em>Elaeocarpus ganitrus</em> origin. No synthetic resin, pigment dyes, or tampering detected and the bead was naturally unjoined to a higher face rudraksha bead but grew inside the same fruit.";
-        obsTextElem.innerHTML = `Under high-magnification analysis, the bead exhibits ${mukhiDescriptor}${suffix}`;
-      }
-      if (verdictSpan) {
-        let verdictBase = "Certified Genuine — All authenticity protocols passed. ";
-        let mukhiVerdict = `${mukhiDisplay} Mukhi Naturally Detached Savaar Rudraksha confirmed by gemological analysis.`;
-        verdictSpan.innerText = verdictBase + mukhiVerdict;
-      }
-      
-      // rebuild dynamic URL and preview it
-      return buildCurrentURL();
+    if (verdictSpan) {
+      let verdictBase = "Certified Genuine — All authenticity protocols passed. ";
+      let mukhiVerdict = `${mukhiDisplay} Mukhi Naturally Detached Savaar Rudraksha confirmed by gemological analysis.`;
+      verdictSpan.innerText = verdictBase + mukhiVerdict;
     }
-    
-    // build shareable URL from current inputs (and current displayed values)
-    function buildCurrentURL() {
-      const mukhi = editMukhi.value;
-      let dimsRaw = editDims.value.trim();
-      // keep dims in x format for URL
-      const dimsForUrl = dimsRaw.replace(/×/g, 'x').replace(/\s*/g, '');
-      const weightRaw = editWeight.value.trim().replace(/[^0-9.]/g, '');
-      const cert = encodeURIComponent(editCertno.value.trim());
-      const shape = encodeURIComponent(editShape.value.trim());
-      const origin = encodeURIComponent(editOrigin.value.trim());
-      const front = encodeURIComponent(editFrontImg.value.trim());
-      const back = encodeURIComponent(editBackImg.value.trim());
-      
-      const params = new URLSearchParams();
-      if (mukhi) params.set('mukhi', mukhi);
-      if (dimsForUrl) params.set('dims', dimsForUrl);
-      if (weightRaw) params.set('weight', weightRaw);
-      if (cert) params.set('certno', cert);
-      if (shape) params.set('shape', shape);
-      if (origin) params.set('origin', origin);
-      if (front) params.set('front', front);
-      if (back) params.set('back', back);
-      
-      let fullUrl = window.location.protocol + '//' + window.location.host + window.location.pathname;
-      if (params.toString()) fullUrl += '?' + params.toString();
-      return fullUrl;
-    }
-    
-    // update both certificate and browser URL (pushState)
-    function updateAllAndPushState() {
-      updateCertificateFromInputs();
-      const newUrl = buildCurrentURL();
-      window.history.pushState({}, '', newUrl);
-      if (linkPreviewSpan) linkPreviewSpan.innerText = newUrl.length > 80 ? newUrl.substring(0, 80) + '…' : newUrl;
-      // also copy to clipboard optionally? not auto.
-    }
-    
-    // refresh preview without full page reload
-    function refreshLinkPreview() {
-      const url = buildCurrentURL();
-      if (linkPreviewSpan) linkPreviewSpan.innerText = url.length > 80 ? url.substring(0, 80) + '…' : url;
-    }
-    
-    // copy dynamic link to clipboard
-    async function copyDynamicLink() {
-      const fullUrl = buildCurrentURL();
-      try {
-        await navigator.clipboard.writeText(fullUrl);
-        if (copyFeedbackDiv) {
-          copyFeedbackDiv.style.display = 'inline-block';
-          setTimeout(() => {
-            copyFeedbackDiv.style.display = 'none';
-          }, 2000);
-        }
-      } catch(err) {
-        alert("Manual copy: " + fullUrl);
-      }
-    }
-    
-    // sync inputs from URL parameters on page load
-    function loadParamsToInputs() {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.has('mukhi')) editMukhi.value = urlParams.get('mukhi');
-      if (urlParams.has('dims')) editDims.value = urlParams.get('dims');
-      if (urlParams.has('weight')) editWeight.value = urlParams.get('weight');
-      if (urlParams.has('certno')) editCertno.value = urlParams.get('certno');
-      if (urlParams.has('shape')) editShape.value = urlParams.get('shape');
-      if (urlParams.has('origin')) editOrigin.value = urlParams.get('origin');
-      if (urlParams.has('front')) editFrontImg.value = urlParams.get('front');
-      if (urlParams.has('back')) editBackImg.value = urlParams.get('back');
-      
-      // then force certificate update
-      updateCertificateFromInputs();
-      refreshLinkPreview();
-    }
-    
-    // initial load: respect URL params
-    loadParamsToInputs();
-    
-    // event listeners
-    applyBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      updateAllAndPushState();
-    });
-    
-    copyLinkBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      copyDynamicLink();
-    });
-    
-    // optional: when any input changes, update preview link live (without pushing state)
-    const allInputs = [editMukhi, editDims, editWeight, editCertno, editShape, editOrigin, editFrontImg, editBackImg];
-    allInputs.forEach(inp => {
-      inp.addEventListener('input', () => {
-        refreshLinkPreview();
-      });
-    });
-    
-    // toggle panel interactivity
-    const toolHeader = document.getElementById('toolHeader');
-    const toolPanel = document.getElementById('toolPanel');
-    const toggleIcon = document.getElementById('toggleIcon');
-    if (toolHeader && toolPanel) {
-      toolHeader.addEventListener('click', () => {
-        toolPanel.classList.toggle('open');
-        toggleIcon.classList.toggle('fa-chevron-down');
-        toggleIcon.classList.toggle('fa-chevron-up');
-      });
-      toolPanel.classList.add('open');
-      toggleIcon.classList.remove('fa-chevron-down');
-      toggleIcon.classList.add('fa-chevron-up');
-    }
-    
-    // initial preview update
-    refreshLinkPreview();
+
+    // Optional: update page title or any other meta? Not needed.
   })();
 </script>
+
+<!-- The certificate is completely static in appearance. All values are driven by URL parameters.
+     Example dynamic link:
+     ?mukhi=12&dims=30.2x25.1x18.4&weight=4.12&certno=026-N12-099&shape=Round&origin=Nepal&front=newfront.jpg&back=newback.jpg
+     
+     Missing parameters fall back to the default values shown above.
+-->
 </body>
 </html>
