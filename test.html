@@ -84,13 +84,6 @@ position:relative;
 overflow:hidden;
 }
 
-/* ===================================================== /
-/ ALL L-SHAPED CORNER ORNAMENTS (TOP LEFT, TOP RIGHT,
-BOTTOM LEFT, BOTTOM RIGHT) HAVE BEEN REMOVED /
-/ ===================================================== */
-
-/* header */
-
 .cert-header{
 position:relative;
 text-align:center;
@@ -111,9 +104,8 @@ background-size:24px 24px;
 pointer-events:none;
 }
 
-/* --- TINY SYMBOL CLASS FOR CHANDRA & SURYA --- */
 .tiny-symbol{
-height: 1.99rem; /* Set to exactly 1.99rem as requested */
+height: 1.99rem;
 width: auto;
 vertical-align: middle;
 display: inline-block;
@@ -126,7 +118,6 @@ display:inline-flex;
 align-items:center;
 gap:.5rem;
 background:var(--blue-sheen);
-/* BORDER REMOVED completely - no lines around the box */
 color:var(--blue-accent);
 font-size:.65rem;
 font-weight:600;
@@ -197,8 +188,6 @@ font-weight:600;
 color:var(--blue-accent);
 }
 
-/* body */
-
 .cert-body{
 padding:1.8rem 2rem;
 display:flex;
@@ -226,16 +215,10 @@ height:1px;
 background:linear-gradient(90deg,var(--border-blue),transparent);
 }
 
-/* ========================= /
-/ HUGE SQUARE IMAGE SECTION /
-/ ========================= */
-
 .image-gallery{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:.45rem;
-
-/* purposely extending outside frame */
 width:calc(100% + 8rem);
 margin-left:-4rem;
 margin-right:-4rem;
@@ -266,13 +249,8 @@ border-color:var(--blue-light);
 
 .image-card img{
 width:100%;
-
-/* PERFECT SQUARE */
 aspect-ratio:1 / 1;
-
-/* HUGE */
 height:auto;
-
 object-fit:cover;
 display:block;
 background:#f3f7fc;
@@ -292,8 +270,6 @@ color:var(--text-secondary);
 font-style:italic;
 font-weight:400;
 }
-
-/* details */
 
 .details-panel{
 border:1px solid var(--border);
@@ -404,8 +380,6 @@ font-size:1.1rem;
 color:var(--blue-light);
 }
 
-/* footer */
-
 .cert-footer{
 background:var(--bg-secondary);
 border-top:1px solid var(--border);
@@ -461,8 +435,6 @@ color:var(--text-secondary);
 opacity:.7;
 }
 
-/* responsive */
-
 @media(max-width:900px){
 
 .image-gallery{
@@ -501,8 +473,6 @@ padding:1.4rem .8rem 1rem;
 .image-gallery{
 grid-template-columns:1fr 1fr;
 gap:.12rem;
-
-/* still huge on mobile */
 width:calc(100% + 2.2rem);
 margin-left:-1.1rem;
 margin-right:-1.1rem;
@@ -577,7 +547,7 @@ src="12-02-Front.jpg"
 alt="Front View">
 
 <div class="image-label">
-Front View <span>· 12 Mukhi ·</span> Natural Surface
+Front View <span id="front-mukhi-label">· 12 Mukhi ·</span> Natural Surface
 </div>
 
 </div>
@@ -619,7 +589,7 @@ Certificate No.
 </div>
 
 <div class="detail-value">
-<span class="id-pill">026-N12-002</span>
+<span class="id-pill" id="cert-number">026-N12-002</span>
 </div>
 </div>
 
@@ -629,7 +599,7 @@ Certificate No.
 Dimensions (mm)
 </div>
 
-<div class="detail-value">
+<div class="detail-value" id="dimension-value">
 27.3 × 22.4 × 17.1
 </div>
 </div>
@@ -640,7 +610,7 @@ Dimensions (mm)
 Weight
 </div>
 
-<div class="detail-value">
+<div class="detail-value" id="weight-value">
 3.87 g
 </div>
 </div>
@@ -651,7 +621,7 @@ Weight
 Mukhi Count
 </div>
 
-<div class="detail-value">
+<div class="detail-value" id="mukhi-count-value">
 1 Mukhi
 </div>
 </div>
@@ -662,7 +632,7 @@ Mukhi Count
 Shape
 </div>
 
-<div class="detail-value">
+<div class="detail-value" id="shape-value">
 Oval
 </div>
 </div>
@@ -673,7 +643,7 @@ Oval
 Origin
 </div>
 
-<div class="detail-value">
+<div class="detail-value" id="origin-value">
 Nepal
 </div>
 </div>
@@ -695,7 +665,7 @@ Gemological Observation
 
 <div class="obs-panel">
 
-<p class="obs-text">
+<p class="obs-text" id="obs-text-main">
 Under high-magnification analysis, the bead exhibits Single distinct,
 naturally formed mukhi line with no evidence of artificial scoring
 or chemical treatment. Surface texture and internal structure are
@@ -703,10 +673,10 @@ consistent with authentic <em>Elaeocarpus ganitrus</em> origin.
 No synthetic resin, pigment dyes, or tampering detected and the bead was naturally unjoined to a higher face rudraksha bead but grew inside the same fruit.
 </p>
 
-<div class="obs-verdict">
+<div class="obs-verdict" id="obs-verdict-block">
 <i class="fas fa-check-circle"></i>
-Certified Genuine — All authenticity protocols passed.
-One Mukhi Naturally Detached Savaar Rudraksha confirmed by gemological analysis.
+<span id="verdict-text">Certified Genuine — All authenticity protocols passed.
+One Mukhi Naturally Detached Savaar Rudraksha confirmed by gemological analysis.</span>
 </div>
 
 </div>
@@ -754,6 +724,141 @@ Nepal Rudraksha Lab
 </div>
 </div>
 
+<script>
+  (function() {
+    // Helper: get query parameter
+    function getParam(name, defaultValue = '') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const val = urlParams.get(name);
+      if (val !== null && val.trim() !== '') return decodeURIComponent(val.trim());
+      return defaultValue;
+    }
+
+    // ---------- PARAMETER MAPPING ----------
+    // mukhi: number of faces (default 1)
+    let mukhi = getParam('mukhi', '1');
+    // support numeric
+    let mukhiNum = parseInt(mukhi, 10);
+    if (isNaN(mukhiNum)) mukhiNum = 1;
+    const mukhiDisplay = mukhiNum.toString();
+    
+    // dimensions: expects format like "27.3x22.4x17.1" or "27.3 × 22.4 × 17.1", we normalize to "A × B × C"
+    let dimsRaw = getParam('dims', '27.3x22.4x17.1');
+    let dimsFormatted = dimsRaw;
+    if (dimsRaw && !dimsRaw.includes('×')) {
+      dimsFormatted = dimsRaw.replace(/x/gi, ' × ');
+    }
+    // ensure spaces around ×
+    dimsFormatted = dimsFormatted.replace(/\s*×\s*/g, ' × ');
+    
+    // weight: string like "3.87 g" or just number (add g)
+    let weightRaw = getParam('weight', '3.87');
+    let weightFormatted = weightRaw;
+    if (!weightRaw.toLowerCase().includes('g')) {
+      weightFormatted = weightRaw + ' g';
+    }
+    
+    // certificate number
+    let certNo = getParam('certno', '026-N12-002');
+    
+    // shape
+    let shapeVal = getParam('shape', 'Oval');
+    
+    // origin
+    let originVal = getParam('origin', 'Nepal');
+    
+    // image URLs front & back
+    let frontImgUrl = getParam('front', '12-02-Front.jpg');
+    let backImgUrl = getParam('back', '12-02-Back.jpg');
+    
+    // ----- update DOM elements -----
+    // 1. Mukhi count detail value
+    const mukhiDetailElem = document.getElementById('mukhi-count-value');
+    if (mukhiDetailElem) {
+      mukhiDetailElem.innerText = mukhiDisplay + (mukhiNum === 1 ? ' Mukhi' : ' Mukhis');
+    }
+    
+    // 2. Certificate number pill
+    const certNoElem = document.getElementById('cert-number');
+    if (certNoElem) certNoElem.innerText = certNo;
+    
+    // 3. Dimensions
+    const dimElem = document.getElementById('dimension-value');
+    if (dimElem) dimElem.innerText = dimsFormatted;
+    
+    // 4. Weight
+    const weightElem = document.getElementById('weight-value');
+    if (weightElem) weightElem.innerText = weightFormatted;
+    
+    // 5. Shape
+    const shapeElem = document.getElementById('shape-value');
+    if (shapeElem) shapeElem.innerText = shapeVal;
+    
+    // 6. Origin
+    const originElem = document.getElementById('origin-value');
+    if (originElem) originElem.innerText = originVal;
+    
+    // 7. Images: front + back
+    const frontImg = document.getElementById('front-img');
+    const backImg = document.getElementById('back-img');
+    if (frontImg && frontImgUrl) frontImg.src = frontImgUrl;
+    if (backImg && backImgUrl) backImg.src = backImgUrl;
+    
+    // 8. Update front image label mukhi span (the one inside Front View)
+    const frontMukhiSpan = document.getElementById('front-mukhi-label');
+    if (frontMukhiSpan) {
+      frontMukhiSpan.innerHTML = `· ${mukhiDisplay} Mukhi ·`;
+    }
+    
+    // 9. Update OBSERVATION TEXT (dynamic mukhi line description)
+    const obsTextElem = document.getElementById('obs-text-main');
+    if (obsTextElem) {
+      let lineGrammar = (mukhiNum === 1) ? 'line' : 'lines';
+      let mukhiDescriptor = (mukhiNum === 1) ? 'Single distinct, naturally formed mukhi line' : `${mukhiDisplay} distinct, naturally formed mukhi ${lineGrammar}`;
+      // reconstruct the paragraph: keep everything else identical but replace the key phrase "Single distinct, naturally formed mukhi line"
+      const originalText = obsTextElem.innerHTML;
+      // We'll replace the exact old phrase dynamically
+      const oldPhrasePattern = /Single distinct,\s*naturally formed mukhi line/;
+      const newText = originalText.replace(oldPhrasePattern, mukhiDescriptor);
+      if (newText !== originalText) {
+        obsTextElem.innerHTML = newText;
+      } else {
+        // fallback in case pattern changed: rebuild full sentence (keep suffix)
+        const suffix = " with no evidence of artificial scoring or chemical treatment. Surface texture and internal structure are consistent with authentic <em>Elaeocarpus ganitrus</em> origin. No synthetic resin, pigment dyes, or tampering detected and the bead was naturally unjoined to a higher face rudraksha bead but grew inside the same fruit.";
+        obsTextElem.innerHTML = `Under high-magnification analysis, the bead exhibits ${mukhiDescriptor}${suffix}`;
+      }
+    }
+    
+    // 10. Update obs-verdict text: "X Mukhi Naturally Detached Savaar Rudraksha"
+    const verdictSpan = document.getElementById('verdict-text');
+    if (verdictSpan) {
+      let verdictBase = "Certified Genuine — All authenticity protocols passed. ";
+      let mukhiVerdict = `${mukhiDisplay} Mukhi Naturally Detached Savaar Rudraksha confirmed by gemological analysis.`;
+      // Grammar singular/plural nuance: keep 'Mukhi' consistent
+      verdictSpan.innerText = verdictBase + mukhiVerdict;
+    }
+    
+    // 11. (extra) if cert number prefix / pattern indicates mukhi, but no forced change – keep as param.
+    // Additionally ensure that dimensions & weight appear clean.
+    
+    // ALSO update any potential reference in the brand-chip tiny icons remain same, no changes.
+    // For the certificate number dynamic, also any other fields: Guarantee stays untouched.
+    
+    // Provide developer / user friendly console info
+    console.log('Certificate updated via URL parameters. Usage example: ?mukhi=12&dims=30.1x25.3x18.2&weight=4.21&certno=026-N12-099&front=newfront.jpg&back=newback.jpg&shape=Round&origin=Nepal');
+  })();
+</script>
+
+<!-- note: the certificate now accepts dynamic parameters:
+     ?mukhi=12            -> changes mukhi count shown in specs, image label, observation & verdict text
+     &dims=27.3x22.4x17.1 -> updates dimensions (separate with 'x')
+     &weight=3.87         -> updates weight (automatically adds 'g')
+     &certno=026-N12-002  -> certificate number
+     &shape=Oval          -> bead shape
+     &origin=Nepal        -> origin country
+     &front=image.jpg     -> front view image url
+     &back=image2.jpg     -> back view image url
+     all fields are optional and keep current default if not present.
+-->
 </body>
 </html>
-
