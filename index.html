@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Nepal Rudraksha Lab • Certificate of Authenticity</title>
 
+    <!-- Fonts: Tangerine (English bold) + Gotu (Devanagari thin curvy) + others -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=Jost:wght@300;400;500;600&family=Parisienne&family=Tangerine:wght@700&family=Gotu&family=Kalam:wght@700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <style>
@@ -61,8 +63,14 @@
         }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .frame-inner {
@@ -77,6 +85,7 @@
             overflow: hidden;
         }
 
+        /* LANGUAGE SWITCH - outside the main frame */
         .lang-switch-container {
             position: absolute;
             top: -2.6rem;
@@ -118,6 +127,7 @@
             color: var(--blue-accent);
         }
 
+        /* header */
         .cert-header {
             position: relative;
             text-align: center;
@@ -191,7 +201,7 @@
         .lang-ne .handwritten-logo {
             font-family: 'Gotu', cursive;
             font-weight: 400;
-            font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+            font-size: clamp(2rem, 2.5vw, 2.6rem);
         }
 
         .handwritten-sub {
@@ -231,6 +241,7 @@
             color: var(--blue-accent);
         }
 
+        /* body */
         .cert-body {
             padding: 1.8rem 2rem;
             display: flex;
@@ -423,6 +434,7 @@
             color: var(--blue-light);
         }
 
+        /* footer */
         .cert-footer {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border);
@@ -553,6 +565,7 @@
 <body>
 
 <div class="frame" id="certFrame">
+    <!-- Language switch placed OUTSIDE the frame, above the top border -->
     <div class="lang-switch-container">
         <button class="lang-btn active" data-lang="en">English</button>
         <button class="lang-btn" data-lang="ne">नेपाली</button>
@@ -627,15 +640,16 @@
                 <div class="section-label"><i class="fas fa-microscope"></i> <span id="obsSectionLabel">Gemological Observation</span></div>
                 <div class="obs-panel">
                     <p class="obs-text" id="obsTextParagraph">
-                        Under high-magnification analysis, the bead exhibits <span id="obsMukhiCount">12</span> distinct,
-                        naturally formed mukhi lines with no evidence of artificial scoring or chemical treatment.
-                        Surface texture and internal structure are consistent with authentic <em>Elaeocarpus ganitrus</em> origin.
+                        Under high-magnification analysis, the bead exhibits 12 distinct,
+                        naturally formed mukhi lines with no evidence of artificial scoring
+                        or chemical treatment. Surface texture and internal structure are
+                        consistent with authentic <em>Elaeocarpus ganitrus</em> origin.
                         No synthetic resin, pigment dyes, or tampering detected.
                     </p>
                     <div class="obs-verdict">
                         <i class="fas fa-check-circle"></i>
                         <span id="obsVerdictText">Certified Genuine — All authenticity protocols passed.
-                            <span id="verdictMukhi">Twelve Mukhi</span> Rudraksha confirmed by gemological analysis.</span>
+                            Twelve Mukhi Rudraksha confirmed by gemological analysis.</span>
                     </div>
                 </div>
             </div>
@@ -644,9 +658,10 @@
                 <i class="fas fa-hand-holding-heart"></i>
                 <span id="guaranteeText">
                     <strong>Nepal Rudraksha Lab Guarantee:</strong>
-                    If this Rudraksha bead is proven artificial, duplicate, or non-genuine,
-                    full refund eligibility is granted upon verification. Our lab stands behind
-                    every certified bead with lifetime authenticity assurance.
+                    If this Rudraksha bead is proven artificial, duplicate,
+                    or non-genuine, full refund eligibility is granted upon
+                    verification. Our lab stands behind every certified bead
+                    with lifetime authenticity assurance.
                 </span>
             </div>
         </div>
@@ -666,27 +681,33 @@
 
 <script>
 (function() {
-    // -------------------------- URL PARAMETER PARSING --------------------------
+    // -------------------------- URL PARAMETER PARSING (YOUR NAMES) --------------------------
     const urlParams = new URLSearchParams(window.location.search);
 
-    // Get dynamic values from URL, with fallback defaults
-    const certNo = urlParams.get('cert') || "026-N12-002";
-    const mukhi = parseInt(urlParams.get('mukhi')) || 12;
-    const frontImg = urlParams.get('front') || "12-02-Front.jpg";
-    const backImg = urlParams.get('back') || "12-02-Back.jpg";
-    const shapeParam = urlParams.get('shape') || "Oval";
-    const dimensions = urlParams.get('dimensions') || "27.3 × 22.4 × 17.1";
-    const weight = parseFloat(urlParams.get('weight')) || 3.87;
+    function getParam(name, fallback) {
+        const value = urlParams.get(name);
+        return value && value.trim() !== "" ? value : fallback;
+    }
 
-    // Shape mapping
+    // Read all parameters using YOUR exact names
+    const product = getParam("product", "026-N12-002");      // certificate number
+    const mukhi = parseInt(getParam("mukhi", "12")) || 12;
+    const frontImg = getParam("front", "12-02-Front.jpg");
+    const backImg = getParam("back", "12-02-Back.jpg");
+    const dim = getParam("dim", "27.3 × 22.4 × 17.1");
+    const weight = getParam("weight", "3.87 g");
+    const shapeParam = getParam("shape", "Oval");
+    const origin = getParam("origin", "Nepal");
+
+    // Shape mapping (English -> Nepali)
     const shapeMap = {
         Round: { en: "Round", ne: "गोलाकार" },
         Oval: { en: "Oval", ne: "अण्डाकार" },
         HalfMoon: { en: "Half Moon", ne: "अर्धचन्द्राकार" }
     };
-    const selectedShape = shapeMap[shapeParam] || shapeMap["Oval"];
+    const selectedShape = shapeMap[shapeParam] || { en: shapeParam, ne: shapeParam }; // fallback to raw value
 
-    // Number to Devanagari converter (for Nepali)
+    // Number to Devanagari converter
     const devanagariDigits = ['०','१','२','३','४','५','६','७','८','९'];
     function toNepaliNumber(num) {
         return num.toString().replace(/\d/g, d => devanagariDigits[d]);
@@ -695,18 +716,7 @@
         return str.replace(/\d/g, d => devanagariDigits[d]);
     }
 
-    // Mukhi word in Nepali (e.g., "१२ मुखी")
     const nepaliMukhi = toNepaliNumber(mukhi) + " मुखी";
-
-    // Image label helper
-    function getFrontLabel(lang, mukhiCount) {
-        if (lang === 'en') return `Front View <span>· ${mukhiCount} Mukhi ·</span> Natural Surface`;
-        else return `अग्रभाग <span>· ${toNepaliNumber(mukhiCount)} मुखी ·</span> प्राकृतिक दाना`;
-    }
-    function getBackLabel(lang, mukhiCount) {
-        if (lang === 'en') return `Back View <span>· Natural Lines ·</span> Unaltered`;
-        else return `पश्चभाग <span>· प्राकृतिक मुखी ·</span> अपरिवर्तित`;
-    }
 
     // Set image src attributes immediately
     document.getElementById('front-img').src = frontImg;
@@ -722,19 +732,18 @@
             photoEvidenceLabel: "Photographic Evidence",
             specsLabel: "Bead Specifications",
             certNoLabel: "Certificate No.",
-            certNoValue: certNo,
+            certNoValue: product,
             dimsLabel: "Dimensions (mm)",
-            dimsValue: dimensions,
+            dimsValue: dim,
             weightLabel: "Weight",
-            weightValue: weight + " g",
+            weightValue: weight,
             mukhiLabel: "Mukhi Count",
             mukhiValue: mukhi + " Mukhi",
             shapeLabel: "Shape",
             shapeValue: selectedShape.en,
             originLabel: "Origin",
-            originValue: "Nepal",
+            originValue: origin,
             obsSectionLabel: "Gemological Observation",
-            obsMukhiCount: mukhi,
             obsTextParagraph: `Under high-magnification analysis, the bead exhibits ${mukhi} distinct, naturally formed mukhi lines with no evidence of artificial scoring or chemical treatment. Surface texture and internal structure are consistent with authentic <em>Elaeocarpus ganitrus</em> origin. No synthetic resin, pigment dyes, or tampering detected.`,
             obsVerdictText: `Certified Genuine — All authenticity protocols passed. ${mukhi} Mukhi Rudraksha confirmed by gemological analysis.`,
             guaranteeText: "<strong>Nepal Rudraksha Lab Guarantee:</strong> If this Rudraksha bead is proven artificial, duplicate, or non-genuine, full refund eligibility is granted upon verification. Our lab stands behind every certified bead with lifetime authenticity assurance.",
@@ -753,11 +762,11 @@
             photoEvidenceLabel: "दृश्यात्मक प्रमाण",
             specsLabel: "रुद्राक्षको विवरण",
             certNoLabel: "प्रमाणपत्र नं.",
-            certNoValue: convertDigitsToNepali(certNo),
+            certNoValue: convertDigitsToNepali(product),
             dimsLabel: "आयाम (मि.मि)",
-            dimsValue: convertDigitsToNepali(dimensions),
+            dimsValue: convertDigitsToNepali(dim),
             weightLabel: "तौल",
-            weightValue: toNepaliNumber(weight) + " ग्राम",
+            weightValue: convertDigitsToNepali(weight),
             mukhiLabel: "मुखी संख्या",
             mukhiValue: nepaliMukhi,
             shapeLabel: "आकार",
@@ -765,7 +774,6 @@
             originLabel: "उत्पत्ति स्थान",
             originValue: "नेपाल",
             obsSectionLabel: "परीक्षण अवलोकन",
-            obsMukhiCount: toNepaliNumber(mukhi),
             obsTextParagraph: `सुक्ष्मदर्शन यन्त्रबाट अवलोकन गर्दा, दानामा ${toNepaliNumber(mukhi)} वटा प्राकृतिक मुखीको रेखाहरू अवलोकन गरिन्छ जसमा कृत्रिम बनावट वा रासायनिक प्रयोगको कुनै प्रमाण छैन। सतहको बनावट र आन्तरिक संरचना हेर्दा रुद्राक्ष <em>Elaeocarpus ganitrus (Nepal)</em> प्रजातिको पुष्टि हुन्छ। कुनै कृत्रिम पदार्थ, रंगद्रव्य रङ्ग, वा छेडखानी पत्ता लागेन।`,
             obsVerdictText: `मौलिकता प्रमाणित — सबै प्रमाणिकता विधि पारित। ${nepaliMukhi} रुद्राक्ष सुक्ष्मदर्शन परीक्षणद्वारा पुष्टि गरियो।`,
             guaranteeText: "<strong>नेपाल रुद्राक्ष प्रयोगशाला ग्यारेन्टी:</strong> यदि यो रुद्राक्ष दाना कृत्रिम, नक्कल, वा गैर-प्रामाणिक साबित भएमा, पुनः जाँच पश्चात खरिद रकम फिर्ता गरिनेछ। हाम्रो प्रयोगशालाबाट प्रमाणित हरेक रुद्राक्षको लागि आजीवन आश्वासनको साथ जिम्मेवारबोध छौँ।",
@@ -778,7 +786,7 @@
         }
     };
 
-    // Helper to set element content
+    // Helper to set content
     const setContent = (id, content, asHtml = false) => {
         const el = document.getElementById(id);
         if (el) {
@@ -787,18 +795,14 @@
         }
     };
 
-    let currentLang = 'en';
-
     function applyLanguage(lang) {
         const t = translations[lang];
         if (!t) return;
 
-        // Font class toggle
         const frame = document.getElementById('certFrame');
         if (lang === 'ne') frame.classList.add('lang-ne');
         else frame.classList.remove('lang-ne');
 
-        // Text fields
         setContent("brandChipText", t.brandChipText);
         setContent("handwrittenLogo", t.handwrittenLogo);
         setContent("brandTagline", t.brandTagline);
@@ -829,10 +833,14 @@
         setContent("footerCopyText", t.footerCopyText);
 
         // Image labels with dynamic mukhi
-        setContent("frontImageLabel", getFrontLabel(lang, mukhi), true);
-        setContent("backImageLabel", getBackLabel(lang, mukhi), true);
-
-        currentLang = lang;
+        const frontLabel = lang === 'en' ?
+            `Front View <span>· ${mukhi} Mukhi ·</span> Natural Surface` :
+            `अग्रभाग <span>· ${toNepaliNumber(mukhi)} मुखी ·</span> प्राकृतिक दाना`;
+        const backLabel = lang === 'en' ?
+            `Back View <span>· Natural Lines ·</span> Unaltered` :
+            `पश्चभाग <span>· प्राकृतिक मुखी ·</span> अपरिवर्तित`;
+        setContent("frontImageLabel", frontLabel, true);
+        setContent("backImageLabel", backLabel, true);
     }
 
     // Language buttons
@@ -856,7 +864,7 @@
         neBtn.addEventListener('click', () => setActiveLang('ne'));
     }
 
-    // Initial: English
+    // Start with English
     setActiveLang('en');
 })();
 </script>
