@@ -1,849 +1,864 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Nepal Rudraksha Lab • Certificate of Authenticity</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=Jost:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<style>
-
-:root{
-    --bg-main:#F5F9FF;
-    --bg-secondary:#E9F0FA;
-    --bg-card:#FFFFFF;
-    --text-primary:#1A2C3E;
-    --text-secondary:#2C4A6E;
-    --blue-accent:#2C7DA0;
-    --blue-light:#61A5C2;
-    --blue-pale:#D9EDF2;
-    --blue-sheen:#EFF6FA;
-    --gold:#C8A24C;
-    --border:#CDDFE7;
-    --border-blue:rgba(44,125,160,0.28);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:2.5rem 1rem;
-    background:linear-gradient(145deg,#DCE8F2 0%,#C2D6E8 100%);
-    font-family:'Jost',sans-serif;
-    color:var(--text-primary);
-    overflow-x:hidden;
-}
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:
-    radial-gradient(circle at 25% 40%, rgba(255,255,240,0.08) 2%, transparent 2.5%),
-    radial-gradient(circle at 70% 85%, rgba(97,165,194,0.12) 1.8%, transparent 2%);
-    background-size:48px 48px,36px 36px;
-    pointer-events:none;
-}
-
-.frame{
-    width:100%;
-    max-width:1050px;
-    animation:fadeUp .7s cubic-bezier(.2,.9,.4,1.1) both;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(24px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.frame-inner{
-    background:var(--bg-main);
-    border:1px solid var(--border-blue);
-    box-shadow:
-    0 0 0 6px var(--bg-main),
-    0 0 0 9px rgba(44,125,160,0.2),
-    0 30px 50px rgba(0,0,0,0.12),
-    inset 0 0 30px rgba(44,125,160,0.04);
-    position:relative;
-    overflow:hidden;
-}
-
-/* corner ornaments */
-
-.frame-inner::before,
-.frame-inner::after,
-.frame-bottom::before,
-.frame-bottom::after{
-    content:"";
-    position:absolute;
-    width:54px;
-    height:54px;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E%3Cpath d='M3 49 L3 3 L49 3' stroke='%232C7DA0' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M3 18 Q3 3 18 3' stroke='%2361A5C2' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='3' cy='3' r='2.8' fill='%232C7DA0'/%3E%3C/svg%3E");
-    background-size:contain;
-    background-repeat:no-repeat;
-    z-index:5;
-    pointer-events:none;
-}
-
-.frame-inner::before{
-    top:-1px;
-    left:-1px;
-}
-
-.frame-inner::after{
-    top:-1px;
-    right:-1px;
-    transform:rotate(90deg);
-}
-
-.frame-bottom::before{
-    bottom:-1px;
-    left:-1px;
-    transform:rotate(270deg);
-}
-
-.frame-bottom::after{
-    bottom:-1px;
-    right:-1px;
-    transform:rotate(180deg);
-}
-
-/* header */
-
-.cert-header{
-    position:relative;
-    text-align:center;
-    padding:2rem 1.5rem 1.4rem;
-    background:var(--bg-main);
-    border-bottom:1px solid var(--border);
-    overflow:hidden;
-}
-
-.cert-header::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:
-    linear-gradient(45deg, rgba(44,125,160,0.03) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(44,125,160,0.03) 25%, transparent 25%);
-    background-size:24px 24px;
-    pointer-events:none;
-}
-
-.brand-chip{
-    display:inline-flex;
-    align-items:center;
-    gap:.5rem;
-    background:var(--blue-sheen);
-    border:1px solid var(--border-blue);
-    color:var(--blue-accent);
-    font-size:.65rem;
-    font-weight:600;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    padding:.34rem 1.2rem;
-    border-radius:40px;
-    margin-bottom:1rem;
-}
-
-.brand-chip i{
-    color:var(--blue-light);
-}
-
-.gold-rule{
-    height:1px;
-    margin:.9rem 0;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        var(--blue-light),
-        var(--blue-accent),
-        var(--blue-light),
-        transparent
-    );
-    opacity:.6;
-}
-
-.handwritten-logo{
-    font-family:'Parisienne',cursive;
-    font-size:clamp(2rem,5vw,3.4rem);
-    color:var(--blue-accent);
-    white-space:nowrap;
-    display:inline-block;
-    text-shadow:2px 2px 6px rgba(44,125,160,.12);
-}
-
-.handwritten-sub{
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;
-    font-size:.9rem;
-    color:var(--text-secondary);
-    border-top:1px dashed var(--border-blue);
-    display:inline-block;
-    padding-top:.2rem;
-}
-
-.brand-tagline{
-    margin-top:.5rem;
-    font-size:.62rem;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--text-secondary);
-}
-
-.cert-title-badge{
-    margin-top:.7rem;
-    display:inline-flex;
-    align-items:center;
-    gap:.55rem;
-    background:var(--blue-pale);
-    border:1px solid var(--border-blue);
-    border-radius:50px;
-    padding:.38rem 1.6rem;
-    font-family:'Cormorant Garamond',serif;
-    font-size:1rem;
-    font-style:italic;
-    font-weight:600;
-}
-
-.cert-title-badge i{
-    color:var(--blue-accent);
-}
-
-/* body */
-
-.cert-body{
-    padding:1.8rem 2rem;
-    display:flex;
-    flex-direction:column;
-    gap:1.6rem;
-    background:var(--bg-main);
-}
-
-.section-label{
-    display:flex;
-    align-items:center;
-    gap:.6rem;
-    margin-bottom:.9rem;
-    font-size:.62rem;
-    font-weight:600;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--blue-accent);
-}
-
-.section-label::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:linear-gradient(90deg,var(--border-blue),transparent);
-}
-
-/* ========================= */
-/* HUGE SQUARE IMAGE SECTION */
-/* ========================= */
-
-.image-gallery{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:.45rem;
-
-    /* purposely extending outside frame */
-    width:calc(100% + 8rem);
-    margin-left:-4rem;
-    margin-right:-4rem;
-}
-
-.image-card{
-    background:#fff;
-    border:1px solid var(--border);
-    padding:.22rem;
-    position:relative;
-    transition:.25s ease;
-    box-shadow:0 4px 10px rgba(0,0,0,0.04);
-}
-
-.image-card::before{
-    content:"";
-    position:absolute;
-    inset:5px;
-    border:1px solid rgba(44,125,160,0.18);
-    pointer-events:none;
-}
-
-.image-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 18px 30px rgba(44,125,160,.12);
-    border-color:var(--blue-light);
-}
-
-.image-card img{
-    width:100%;
-
-    /* PERFECT SQUARE */
-    aspect-ratio:1 / 1;
-
-    /* HUGE */
-    height:auto;
-
-    object-fit:cover;
-    display:block;
-    background:#f3f7fc;
-}
-
-.image-label{
-    text-align:center;
-    padding:.55rem .4rem .25rem;
-    font-family:'Cormorant Garamond',serif;
-    font-size:.88rem;
-    font-weight:600;
-    color:var(--blue-accent);
-}
-
-.image-label span{
-    color:var(--text-secondary);
-    font-style:italic;
-    font-weight:400;
-}
-
-/* details */
-
-.details-panel{
-    border:1px solid var(--border);
-    background:var(--blue-sheen);
-    padding:1.3rem 1.5rem;
-    position:relative;
-}
-
-.details-panel::before{
-    content:"";
-    position:absolute;
-    inset:5px;
-    border:1px solid rgba(44,125,160,0.12);
-    pointer-events:none;
-}
-
-.details-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
-    gap:1.1rem 1.8rem;
-}
-
-.detail-label{
-    font-size:.58rem;
-    text-transform:uppercase;
-    letter-spacing:.18em;
-    font-weight:600;
-    color:var(--text-secondary);
-    margin-bottom:.22rem;
-    display:flex;
-    align-items:center;
-    gap:.32rem;
-}
-
-.detail-label i{
-    color:var(--blue-accent);
-}
-
-.detail-value{
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.2rem;
-    font-weight:600;
-}
-
-.id-pill{
-    display:inline-block;
-    background:var(--text-primary);
-    color:var(--blue-pale);
-    padding:.18rem .9rem;
-    border-radius:24px;
-    font-size:.8rem;
-    font-weight:600;
-    letter-spacing:.06em;
-}
-
-.obs-panel{
-    border-left:3.5px solid var(--blue-accent);
-    background:var(--bg-secondary);
-    border-top:1px solid var(--border);
-    border-right:1px solid var(--border);
-    border-bottom:1px solid var(--border);
-    padding:1.15rem 1.4rem;
-}
-
-.obs-text{
-    font-family:'IM Fell English',serif;
-    font-size:.96rem;
-    line-height:1.65;
-    color:var(--text-secondary);
-    margin-bottom:.7rem;
-}
-
-.obs-verdict{
-    display:flex;
-    align-items:center;
-    gap:.55rem;
-    background:rgba(33,110,74,0.08);
-    border:1px solid rgba(33,110,74,0.2);
-    color:#1E6B3B;
-    padding:.5rem 1rem;
-    border-radius:28px;
-    font-size:.82rem;
-    font-weight:600;
-}
-
-.obs-verdict i{
-    color:#2A7F4A;
-}
-
-.guarantee{
-    background:var(--text-primary);
-    color:var(--blue-pale);
-    padding:.9rem 1.5rem;
-    border-radius:12px;
-    border-left:4px solid var(--blue-light);
-    display:flex;
-    align-items:center;
-    gap:.9rem;
-    font-size:.84rem;
-}
-
-.guarantee i{
-    color:var(--blue-light);
-    font-size:1.1rem;
-}
-
-.guarantee strong{
-    color:var(--blue-light);
-}
-
-/* footer */
-
-.cert-footer{
-    background:var(--bg-secondary);
-    border-top:1px solid var(--border);
-    padding:1.1rem 2rem;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    align-items:center;
-    gap:.6rem;
-}
-
-.footer-brand{
-    font-family:'Cormorant Garamond',serif;
-    font-size:1rem;
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:.45rem;
-}
-
-.footer-brand i{
-    color:var(--blue-accent);
-}
-
-.footer-contacts{
-    display:flex;
-    flex-wrap:wrap;
-    gap:.85rem;
-}
-
-.footer-contacts span,
-.footer-contacts a{
-    text-decoration:none;
-    color:var(--text-secondary);
-    font-size:.7rem;
-    display:flex;
-    align-items:center;
-    gap:.3rem;
-}
-
-.footer-contacts i{
-    color:var(--blue-accent);
-}
-
-.footer-copy{
-    width:100%;
-    text-align:center;
-    margin-top:.3rem;
-    font-size:.6rem;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--text-secondary);
-    opacity:.7;
-}
-
-/* responsive */
-
-@media(max-width:900px){
-
-    .image-gallery{
-        width:calc(100% + 4rem);
-        margin-left:-2rem;
-        margin-right:-2rem;
-    }
-
-}
-
-@media(max-width:700px){
-
-    .cert-body{
-        padding:1.3rem;
-    }
-
-    .image-gallery{
-        width:calc(100% + 3rem);
-        margin-left:-1.5rem;
-        margin-right:-1.5rem;
-        gap:.25rem;
-    }
-
-}
-
-@media(max-width:560px){
-
-    .handwritten-logo{
-        font-size:clamp(1.4rem,8vw,2rem);
-    }
-
-    .cert-header{
-        padding:1.4rem .8rem 1rem;
-    }
-
-    .image-gallery{
-        grid-template-columns:1fr 1fr;
-        gap:.12rem;
-
-        /* still huge on mobile */
-        width:calc(100% + 2.2rem);
-        margin-left:-1.1rem;
-        margin-right:-1.1rem;
-    }
-
-    .details-grid{
-        grid-template-columns:1fr 1fr;
-        gap:.8rem;
-    }
-
-    .cert-footer{
-        padding:1rem;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Nepal Rudraksha Lab • Certificate of Authenticity</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&family=Jost:wght@300;400;500;600&family=Parisienne&family=Tangerine:wght@700&family=Gotu&family=Kalam:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --bg-main: #F5F9FF;
+            --bg-secondary: #E9F0FA;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A2C3E;
+            --text-secondary: #2C4A6E;
+            --blue-accent: #2C7DA0;
+            --blue-light: #61A5C2;
+            --blue-pale: #D9EDF2;
+            --blue-sheen: #EFF6FA;
+            --gold: #C8A24C;
+            --border: #CDDFE7;
+            --border-blue: rgba(44, 125, 160, 0.28);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2.5rem 1rem;
+            background: linear-gradient(145deg, #DCE8F2 0%, #C2D6E8 100%);
+            font-family: 'Jost', sans-serif;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 25% 40%, rgba(255, 255, 240, 0.08) 2%, transparent 2.5%),
+                radial-gradient(circle at 70% 85%, rgba(97, 165, 194, 0.12) 1.8%, transparent 2%);
+            background-size: 48px 48px, 36px 36px;
+            pointer-events: none;
+        }
+
+        .frame {
+            width: 100%;
+            max-width: 1050px;
+            position: relative;
+            animation: fadeUp .7s cubic-bezier(.2, .9, .4, 1.1) both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .frame-inner {
+            background: var(--bg-main);
+            border: 1px solid var(--border-blue);
+            box-shadow:
+                0 0 0 6px var(--bg-main),
+                0 0 0 9px rgba(44, 125, 160, 0.2),
+                0 30px 50px rgba(0, 0, 0, 0.12),
+                inset 0 0 30px rgba(44, 125, 160, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lang-switch-container {
+            position: absolute;
+            top: -2.6rem;
+            right: 0.6rem;
+            z-index: 20;
+            display: flex;
+            gap: 0.55rem;
+            background: rgba(255, 255, 250, 0.85);
+            backdrop-filter: blur(6px);
+            padding: 0.2rem 0.25rem;
+            border-radius: 60px;
+            border: 1px solid var(--border-blue);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        .lang-btn {
+            font-family: 'Jost', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.35rem 0.9rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .lang-btn.active {
+            background: var(--blue-accent);
+            color: white;
+            box-shadow: 0 2px 5px rgba(44, 125, 160, 0.2);
+        }
+
+        .lang-btn:not(.active):hover {
+            background: var(--blue-pale);
+            color: var(--blue-accent);
+        }
+
+        .cert-header {
+            position: relative;
+            text-align: center;
+            padding: 2rem 1.5rem 1.4rem;
+            background: var(--bg-main);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .cert-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(45deg, rgba(44, 125, 160, 0.03) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(44, 125, 160, 0.03) 25%, transparent 25%);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        .tiny-symbol {
+            height: 1.99rem;
+            width: auto;
+            vertical-align: middle;
+            display: inline-block;
+            margin: 0 1px 2px 1px;
+            image-rendering: optimizeQuality;
+        }
+
+        .brand-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--blue-sheen);
+            color: var(--blue-accent);
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            padding: .34rem 1.2rem;
+            border-radius: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .gold-rule {
+            height: 1px;
+            margin: .9rem 0;
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--blue-light),
+                    var(--blue-accent),
+                    var(--blue-light),
+                    transparent);
+            opacity: .6;
+        }
+
+        /* Dynamic heading font */
+        .handwritten-logo {
+            font-family: 'Tangerine', 'Gotu', cursive;
+            font-weight: 700;
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            color: var(--blue-accent);
+            white-space: nowrap;
+            display: inline-block;
+            text-shadow: 3px 3px 8px rgba(44, 125, 160, 0.15),
+                         0 0 20px rgba(44, 125, 160, 0.05);
+            line-height: 1.2;
+            letter-spacing: 0.01em;
+        }
+
+        .lang-ne .handwritten-logo {
+            font-family: 'Gotu', cursive;
+            font-weight: 400;
+            font-size: clamp(1.5rem, 4.5vw, 2.6rem);
+        }
+
+        .handwritten-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: .9rem;
+            color: var(--text-secondary);
+            border-top: 1px dashed var(--border-blue);
+            display: inline-block;
+            padding-top: .2rem;
+        }
+
+        .brand-tagline {
+            margin-top: .5rem;
+            font-size: .62rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .cert-title-badge {
+            margin-top: .7rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            background: var(--blue-pale);
+            border: 1px solid var(--border-blue);
+            border-radius: 50px;
+            padding: .38rem 1.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .cert-title-badge i {
+            color: var(--blue-accent);
+        }
+
+        .cert-body {
+            padding: 1.8rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            background: var(--bg-main);
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            margin-bottom: .9rem;
+            font-size: .62rem;
+            font-weight: 600;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--blue-accent);
+        }
+
+        .section-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border-blue), transparent);
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .45rem;
+            width: calc(100% + 8rem);
+            margin-left: -4rem;
+            margin-right: -4rem;
+        }
+
+        .image-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: .22rem;
+            position: relative;
+            transition: .25s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .image-card::before {
+            content: "";
+            position: absolute;
+            inset: 5px;
+            border: 1px solid rgba(44, 125, 160, 0.18);
+            pointer-events: none;
+        }
+
+        .image-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 30px rgba(44, 125, 160, .12);
+            border-color: var(--blue-light);
+        }
+
+        .image-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            background: #f3f7fc;
+        }
+
+        .image-label {
+            text-align: center;
+            padding: .55rem .4rem .25rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--blue-accent);
+        }
+
+        .image-label span {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .details-panel {
+            border: 1px solid var(--border);
+            background: var(--blue-sheen);
+            padding: 1.3rem 1.5rem;
+            position: relative;
+        }
+
+        .details-panel::before {
+            content: "";
+            position: absolute;
+            inset: 5px;
+            border: 1px solid rgba(44, 125, 160, 0.12);
+            pointer-events: none;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+            gap: 1.1rem 1.8rem;
+        }
+
+        .detail-label {
+            font-size: .58rem;
+            text-transform: uppercase;
+            letter-spacing: .18em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: .22rem;
+            display: flex;
+            align-items: center;
+            gap: .32rem;
+        }
+
+        .detail-label i {
+            color: var(--blue-accent);
+        }
+
+        .detail-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .id-pill {
+            display: inline-block;
+            background: var(--text-primary);
+            color: var(--blue-pale);
+            padding: .18rem .9rem;
+            border-radius: 24px;
+            font-size: .8rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+        }
+
+        .obs-panel {
+            border-left: 3.5px solid var(--blue-accent);
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1.15rem 1.4rem;
+        }
+
+        .obs-text {
+            font-family: 'IM Fell English', serif;
+            font-size: .96rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: .7rem;
+        }
+
+        .obs-verdict {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            background: rgba(33, 110, 74, 0.08);
+            border: 1px solid rgba(33, 110, 74, 0.2);
+            color: #1E6B3B;
+            padding: .5rem 1rem;
+            border-radius: 28px;
+            font-size: .82rem;
+            font-weight: 600;
+        }
+
+        .obs-verdict i {
+            color: #2A7F4A;
+        }
+
+        .guarantee {
+            background: var(--text-primary);
+            color: var(--blue-pale);
+            padding: .9rem 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--blue-light);
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+            font-size: .84rem;
+        }
+
+        .guarantee i {
+            color: var(--blue-light);
+            font-size: 1.1rem;
+        }
+
+        .guarantee strong {
+            color: var(--blue-light);
+        }
+
+        .cert-footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 1.1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: .6rem;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .footer-brand i {
+            color: var(--blue-accent);
+        }
+
+        .footer-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .85rem;
+        }
+
+        .footer-contacts span,
+        .footer-contacts a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: .7rem;
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+        }
+
+        .footer-contacts i {
+            color: var(--blue-accent);
+        }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            margin-top: .3rem;
+            font-size: .6rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            opacity: .7;
+        }
+
+        @media(max-width:900px) {
+            .image-gallery {
+                width: calc(100% + 4rem);
+                margin-left: -2rem;
+                margin-right: -2rem;
+            }
+            .lang-switch-container {
+                top: -2.3rem;
+                right: 0.4rem;
+            }
+        }
+
+        @media(max-width:700px) {
+            .cert-body {
+                padding: 1.3rem;
+            }
+            .image-gallery {
+                width: calc(100% + 3rem);
+                margin-left: -1.5rem;
+                margin-right: -1.5rem;
+                gap: .25rem;
+            }
+            .lang-switch-container {
+                top: -2rem;
+                right: 0.3rem;
+                gap: 0.35rem;
+                padding: 0.15rem 0.2rem;
+            }
+            .lang-btn {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.7rem;
+            }
+            .handwritten-logo {
+                font-size: clamp(1.8rem, 8vw, 2.8rem);
+            }
+        }
+
+        @media(max-width:560px) {
+            .cert-header {
+                padding: 1.4rem .8rem 1rem;
+            }
+            .image-gallery {
+                grid-template-columns: 1fr 1fr;
+                gap: .12rem;
+                width: calc(100% + 2.2rem);
+                margin-left: -1.1rem;
+                margin-right: -1.1rem;
+            }
+            .details-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: .8rem;
+            }
+            .cert-footer {
+                padding: 1rem;
+            }
+            .lang-switch-container {
+                top: -1.7rem;
+                right: 0.2rem;
+                gap: 0.25rem;
+                padding: 0.12rem 0.15rem;
+                border-radius: 50px;
+            }
+            .lang-btn {
+                padding: 0.25rem 0.6rem;
+                font-size: 0.6rem;
+            }
+            .handwritten-logo {
+                font-size: clamp(1.4rem, 8vw, 2.2rem);
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="frame">
-<div class="frame-inner frame-bottom">
-
-<header class="cert-header">
-
-    <div class="brand-chip">
-        <i class="fas fa-certificate"></i>
-        Official Authenticity Certificate
+<div class="frame" id="certFrame">
+    <div class="lang-switch-container">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="ne">नेपाली</button>
     </div>
 
-    <div class="gold-rule"></div>
+    <div class="frame-inner">
+        <header class="cert-header">
+            <div class="brand-chip">
+                <img src="chandra.png" class="tiny-symbol" alt="Chandra">
+                <span id="brandChipText">Official Authenticity Certificate</span>
+                <img src="surya.png" class="tiny-symbol" alt="Surya">
+            </div>
+            <div class="gold-rule"></div>
+            <div id="handwrittenLogo" class="handwritten-logo">Nepal Rudraksha Lab</div>
+            <div><div class="handwritten-sub">&nbsp;</div></div>
+            <div id="brandTagline" class="brand-tagline">Gemological Testing • Rudraksha Authentication</div>
+            <div class="gold-rule"></div>
+            <div class="cert-title-badge">
+                <i class="fas fa-scroll"></i>
+                <span id="certBadgeText">Certificate of Authenticity</span>
+            </div>
+        </header>
 
-    <div class="handwritten-logo">
-        Nepal Rudraksha Lab
-    </div>
-
-    <div>
-        <div class="handwritten-sub">&nbsp;</div>
-    </div>
-
-    <div class="brand-tagline">
-        Gemological Testing • Rudraksha Authentication
-    </div>
-
-    <div class="gold-rule"></div>
-
-    <div class="cert-title-badge">
-        <i class="fas fa-scroll"></i>
-        Certificate of Authenticity
-    </div>
-
-</header>
-
-<div class="cert-body">
-
-    <!-- images -->
-
-    <div>
-
-        <div class="section-label">
-            <i class="fas fa-eye"></i>
-            Photographic Evidence
-        </div>
-
-        <div class="image-gallery">
-
-            <div class="image-card">
-
-                <img
-                id="front-img"
-                src="12-02-Front.jpg"
-                alt="Front View"
-                onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22%3E%3Crect width=%22600%22 height=%22600%22 fill=%22%23E9F0FA%22/%3E%3Ctext x=%2250%25%22 y=%2242%25%22 font-size=%2242%22 fill=%22%232C7DA0%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2272%25%22 font-size=%2212%22 fill=%22%232C4A6E%22 text-anchor=%22middle%22%3EFront View%3C/text%3E%3C/svg%3E';">
-
-                <div class="image-label" id="front-label">
-                    Front View <span>· 12 Mukhi ·</span> Natural Surface
+        <div class="cert-body">
+            <div>
+                <div class="section-label"><i class="fas fa-eye"></i> <span id="photoEvidenceLabel">Photographic Evidence</span></div>
+                <div class="image-gallery">
+                    <div class="image-card">
+                        <img id="front-img" src="12-02-Front.jpg" alt="Front View">
+                        <div class="image-label" id="frontImageLabel">Front View <span>· 12 Mukhi ·</span> Natural Surface</div>
+                    </div>
+                    <div class="image-card">
+                        <img id="back-img" src="12-02-Back.jpg" alt="Back View">
+                        <div class="image-label" id="backImageLabel">Back View <span>· Natural Lines ·</span> Unaltered</div>
+                    </div>
                 </div>
-
             </div>
 
-            <div class="image-card">
-
-                <img
-                id="back-img"
-                src="12-02-Back.jpg"
-                alt="Back View"
-                onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22%3E%3Crect width=%22600%22 height=%22600%22 fill=%22%23E9F0FA%22/%3E%3Ctext x=%2250%25%22 y=%2242%25%22 font-size=%2242%22 fill=%22%232C7DA0%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🌀%3C/text%3E%3Ctext x=%2250%25%22 y=%2272%25%22 font-size=%2212%22 fill=%22%232C4A6E%22 text-anchor=%22middle%22%3EBack View%3C/text%3E%3C/svg%3E';">
-
-                <div class="image-label" id="back-label">
-                    Back View <span>· Natural Lines ·</span> Unaltered
+            <div>
+                <div class="section-label"><i class="fas fa-list"></i> <span id="specsLabel">Bead Specifications</span></div>
+                <div class="details-panel">
+                    <div class="details-grid">
+                        <div>
+                            <div class="detail-label"><i class="fas fa-tag"></i> <span id="certNoLabel">Certificate No.</span></div>
+                            <div class="detail-value"><span class="id-pill" id="certNoValue">026-N12-002</span></div>
+                        </div>
+                        <div>
+                            <div class="detail-label"><i class="fas fa-ruler-combined"></i> <span id="dimsLabel">Dimensions (mm)</span></div>
+                            <div class="detail-value" id="dimsValue">27.3 × 22.4 × 17.1</div>
+                        </div>
+                        <div>
+                            <div class="detail-label"><i class="fas fa-weight-hanging"></i> <span id="weightLabel">Weight</span></div>
+                            <div class="detail-value" id="weightValue">3.87 g</div>
+                        </div>
+                        <div>
+                            <div class="detail-label"><i class="fas fa-star-of-david"></i> <span id="mukhiLabel">Mukhi Count</span></div>
+                            <div class="detail-value" id="mukhiValue">12 Mukhi</div>
+                        </div>
+                        <div>
+                            <div class="detail-label"><i class="fas fa-shapes"></i> <span id="shapeLabel">Shape</span></div>
+                            <div class="detail-value" id="shapeValue">Oval</div>
+                        </div>
+                        <div>
+                            <div class="detail-label"><i class="fas fa-map-marker-alt"></i> <span id="originLabel">Origin</span></div>
+                            <div class="detail-value" id="originValue">Nepal</div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
-        </div>
-
-    </div>
-
-    <!-- details -->
-
-    <div>
-
-        <div class="section-label">
-            <i class="fas fa-list"></i>
-            Bead Specifications
-        </div>
-
-        <div class="details-panel">
-
-            <div class="details-grid">
-
-                <div>
-                    <div class="detail-label">
-                        <i class="fas fa-tag"></i>
-                        Certificate No.
-                    </div>
-
-                    <div class="detail-value">
-                        <span class="id-pill" id="product-no">026-N12-002</span>
+            <div>
+                <div class="section-label"><i class="fas fa-microscope"></i> <span id="obsSectionLabel">Gemological Observation</span></div>
+                <div class="obs-panel">
+                    <p class="obs-text" id="obsTextParagraph">
+                        Under high-magnification analysis, the bead exhibits <span id="obsMukhiCount">12</span> distinct,
+                        naturally formed mukhi lines with no evidence of artificial scoring or chemical treatment.
+                        Surface texture and internal structure are consistent with authentic <em>Elaeocarpus ganitrus</em> origin.
+                        No synthetic resin, pigment dyes, or tampering detected.
+                    </p>
+                    <div class="obs-verdict">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="obsVerdictText">Certified Genuine — All authenticity protocols passed.
+                            <span id="verdictMukhi">Twelve Mukhi</span> Rudraksha confirmed by gemological analysis.</span>
                     </div>
                 </div>
-
-                <div>
-                    <div class="detail-label">
-                        <i class="fas fa-ruler-combined"></i>
-                        Dimensions (mm)
-                    </div>
-
-                    <div class="detail-value" id="dimensions-value">
-                        27.3 × 22.4 × 17.1
-                    </div>
-                </div>
-
-                <div>
-                    <div class="detail-label">
-                        <i class="fas fa-weight-hanging"></i>
-                        Weight
-                    </div>
-
-                    <div class="detail-value" id="weight-value">
-                        3.87 g
-                    </div>
-                </div>
-
-                <div>
-                    <div class="detail-label">
-                        <i class="fas fa-star-of-david"></i>
-                        Mukhi Count
-                    </div>
-
-                    <div class="detail-value" id="mukhi-value">
-                        12 Mukhi
-                    </div>
-                </div>
-
-                <div>
-                    <div class="detail-label">
-                        <i class="fas fa-shapes"></i>
-                        Shape
-                    </div>
-
-                    <div class="detail-value" id="shape-value">
-                        Oval
-                    </div>
-                </div>
-
-                <div>
-                    <div class="detail-label">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Origin
-                    </div>
-
-                    <div class="detail-value" id="origin-value">
-                        Nepal
-                    </div>
-                </div>
-
             </div>
 
-        </div>
-
-    </div>
-
-    <!-- observation -->
-
-    <div>
-
-        <div class="section-label">
-            <i class="fas fa-microscope"></i>
-            Gemological Observation
-        </div>
-
-        <div class="obs-panel">
-
-            <p class="obs-text" id="obs-paragraph">
-                Under high-magnification analysis, the bead exhibits 12 distinct,
-                naturally formed mukhi lines with no evidence of artificial scoring
-                or chemical treatment. Surface texture and internal structure are
-                consistent with authentic <em>Elaeocarpus ganitrus</em> origin.
-                No synthetic resin, pigment dyes, or tampering detected.
-            </p>
-
-            <div class="obs-verdict" id="verdict-box">
-                <i class="fas fa-check-circle"></i>
-                Certified Genuine — All authenticity protocols passed.
-                Twelve Mukhi Rudraksha confirmed by gemological analysis.
+            <div class="guarantee">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span id="guaranteeText">
+                    <strong>Nepal Rudraksha Lab Guarantee:</strong>
+                    If this Rudraksha bead is proven artificial, duplicate, or non-genuine,
+                    full refund eligibility is granted upon verification. Our lab stands behind
+                    every certified bead with lifetime authenticity assurance.
+                </span>
             </div>
-
         </div>
 
+        <footer class="cert-footer">
+            <div class="footer-brand"><i class="fas fa-flask"></i> <span id="footerBrandName">Nepal Rudraksha Lab</span></div>
+            <div class="footer-contacts">
+                <span><i class="fas fa-envelope"></i> <span id="footerEmailText">lab@nepalrudraksha.com</span></span>
+                <span><i class="fas fa-phone-alt"></i> <span id="footerPhoneText">+977 9703712118</span></span>
+                <span><i class="fas fa-map-marker-alt"></i> <span id="footerAddressText">Pashupatinath, Kathmandu, Nepal</span></span>
+                <a href="#"><i class="fas fa-globe"></i> <span id="footerWebsiteText">www.nepalrudrakshalab.com</span></a>
+            </div>
+            <div class="footer-copy" id="footerCopyText">© 2026 Nepal Rudraksha Lab • Accredited Rudraksha Testing • All Certificates Verifiable Online</div>
+        </footer>
     </div>
-
-    <!-- guarantee -->
-
-    <div class="guarantee">
-
-        <i class="fas fa-hand-holding-heart"></i>
-
-        <span>
-            <strong>Nepal Rudraksha Lab Guarantee:</strong>
-            If this Rudraksha bead is proven artificial, duplicate,
-            or non-genuine, full refund eligibility is granted upon
-            verification. Our lab stands behind every certified bead
-            with lifetime authenticity assurance.
-        </span>
-
-    </div>
-
 </div>
 
-<footer class="cert-footer">
-
-    <div class="footer-brand">
-        <i class="fas fa-flask"></i>
-        Nepal Rudraksha Lab
-    </div>
-
-    <div class="footer-contacts">
-        <span><i class="fas fa-envelope"></i> lab@nepalrudraksha.com</span>
-        <span><i class="fas fa-phone-alt"></i> +977 9703712118</span>
-        <span><i class="fas fa-map-marker-alt"></i> Pashupatinath, Kathmandu, Nepal</span>
-        <a href="#"><i class="fas fa-globe"></i> www.nepalrudrakshalab.com</a>
-    </div>
-
-    <div class="footer-copy">
-        © 2026 Nepal Rudraksha Lab • Accredited Rudraksha Testing • All Certificates Verifiable Online
-    </div>
-
-</footer>
-
-</div>
-</div>
-
-<!-- DYNAMIC SCRIPT -->
 <script>
 (function() {
-    const params = new URLSearchParams(window.location.search);
+    // -------------------------- URL PARAMETER PARSING --------------------------
+    const urlParams = new URLSearchParams(window.location.search);
 
-    function getParam(name, fallback) {
-        const value = params.get(name);
-        return value && value.trim() !== "" ? value : fallback;
+    // Get dynamic values from URL, with fallback defaults
+    const certNo = urlParams.get('cert') || "026-N12-002";
+    const mukhi = parseInt(urlParams.get('mukhi')) || 12;
+    const frontImg = urlParams.get('front') || "12-02-Front.jpg";
+    const backImg = urlParams.get('back') || "12-02-Back.jpg";
+    const shapeParam = urlParams.get('shape') || "Oval";
+    const dimensions = urlParams.get('dimensions') || "27.3 × 22.4 × 17.1";
+    const weight = parseFloat(urlParams.get('weight')) || 3.87;
+
+    // Shape mapping
+    const shapeMap = {
+        Round: { en: "Round", ne: "गोलाकार" },
+        Oval: { en: "Oval", ne: "अण्डाकार" },
+        HalfMoon: { en: "Half Moon", ne: "अर्धचन्द्राकार" }
+    };
+    const selectedShape = shapeMap[shapeParam] || shapeMap["Oval"];
+
+    // Number to Devanagari converter (for Nepali)
+    const devanagariDigits = ['०','१','२','३','४','५','६','७','८','९'];
+    function toNepaliNumber(num) {
+        return num.toString().replace(/\d/g, d => devanagariDigits[d]);
+    }
+    function convertDigitsToNepali(str) {
+        return str.replace(/\d/g, d => devanagariDigits[d]);
     }
 
-    // Read all parameters
-    const mukhi = getParam("mukhi", "12");
-    const product = getParam("product", "026-N12-002");
-    const dim = getParam("dim", "27.3 × 22.4 × 17.1");
-    const weight = getParam("weight", "3.87 g");
-    const shape = getParam("shape", "Oval");
-    const origin = getParam("origin", "Nepal");
-    const frontImg = getParam("front", "12-02-Front.jpg");
-    const backImg = getParam("back", "12-02-Back.jpg");
+    // Mukhi word in Nepali (e.g., "१२ मुखी")
+    const nepaliMukhi = toNepaliNumber(mukhi) + " मुखी";
 
-    // Update details panel
-    document.getElementById("product-no").textContent = product;
-    document.getElementById("dimensions-value").textContent = dim;
-    document.getElementById("weight-value").textContent = weight;
-    document.getElementById("mukhi-value").textContent = mukhi + " Mukhi";
-    document.getElementById("shape-value").textContent = shape;
-    document.getElementById("origin-value").textContent = origin;
+    // Image label helper
+    function getFrontLabel(lang, mukhiCount) {
+        if (lang === 'en') return `Front View <span>· ${mukhiCount} Mukhi ·</span> Natural Surface`;
+        else return `अग्रभाग <span>· ${toNepaliNumber(mukhiCount)} मुखी ·</span> प्राकृतिक दाना`;
+    }
+    function getBackLabel(lang, mukhiCount) {
+        if (lang === 'en') return `Back View <span>· Natural Lines ·</span> Unaltered`;
+        else return `पश्चभाग <span>· प्राकृतिक मुखी ·</span> अपरिवर्तित`;
+    }
 
-    // Update images
-    const frontEl = document.getElementById("front-img");
-    const backEl = document.getElementById("back-img");
-    frontEl.src = frontImg;
-    backEl.src = backImg;
-    frontEl.alt = "Front View (" + mukhi + " Mukhi)";
-    backEl.alt = "Back View (" + mukhi + " Mukhi)";
+    // Set image src attributes immediately
+    document.getElementById('front-img').src = frontImg;
+    document.getElementById('back-img').src = backImg;
 
-    // Update image labels
-    document.getElementById("front-label").innerHTML =
-        "Front View <span>· " + mukhi + " Mukhi ·</span> Natural Surface";
-    document.getElementById("back-label").innerHTML =
-        "Back View <span>· Natural Lines ·</span> Unaltered";
+    // -------------------------- TRANSLATION DICTIONARY --------------------------
+    const translations = {
+        en: {
+            brandChipText: "Official Authenticity Certificate",
+            handwrittenLogo: "Nepal Rudraksha Lab",
+            brandTagline: "Gemological Testing • Rudraksha Authentication",
+            certBadgeText: "Certificate of Authenticity",
+            photoEvidenceLabel: "Photographic Evidence",
+            specsLabel: "Bead Specifications",
+            certNoLabel: "Certificate No.",
+            certNoValue: certNo,
+            dimsLabel: "Dimensions (mm)",
+            dimsValue: dimensions,
+            weightLabel: "Weight",
+            weightValue: weight + " g",
+            mukhiLabel: "Mukhi Count",
+            mukhiValue: mukhi + " Mukhi",
+            shapeLabel: "Shape",
+            shapeValue: selectedShape.en,
+            originLabel: "Origin",
+            originValue: "Nepal",
+            obsSectionLabel: "Gemological Observation",
+            obsMukhiCount: mukhi,
+            obsTextParagraph: `Under high-magnification analysis, the bead exhibits ${mukhi} distinct, naturally formed mukhi lines with no evidence of artificial scoring or chemical treatment. Surface texture and internal structure are consistent with authentic <em>Elaeocarpus ganitrus</em> origin. No synthetic resin, pigment dyes, or tampering detected.`,
+            obsVerdictText: `Certified Genuine — All authenticity protocols passed. ${mukhi} Mukhi Rudraksha confirmed by gemological analysis.`,
+            guaranteeText: "<strong>Nepal Rudraksha Lab Guarantee:</strong> If this Rudraksha bead is proven artificial, duplicate, or non-genuine, full refund eligibility is granted upon verification. Our lab stands behind every certified bead with lifetime authenticity assurance.",
+            footerBrandName: "Nepal Rudraksha Lab",
+            footerEmailText: "lab@nepalrudraksha.com",
+            footerPhoneText: "+977 9703712118",
+            footerAddressText: "Pashupatinath, Kathmandu, Nepal",
+            footerWebsiteText: "www.nepalrudrakshalab.com",
+            footerCopyText: "© 2026 Nepal Rudraksha Lab • Accredited Rudraksha Testing • All Certificates Verifiable Online"
+        },
+        ne: {
+            brandChipText: "आधिकारिक प्रमाणपत्र",
+            handwrittenLogo: "नेपाल रुद्राक्ष प्रयोगशाला",
+            brandTagline: "रत्न परीक्षण • रुद्राक्ष प्रमाणीकरण",
+            certBadgeText: "मौलिकताको प्रमाणपत्र",
+            photoEvidenceLabel: "दृश्यात्मक प्रमाण",
+            specsLabel: "रुद्राक्षको विवरण",
+            certNoLabel: "प्रमाणपत्र नं.",
+            certNoValue: convertDigitsToNepali(certNo),
+            dimsLabel: "आयाम (मि.मि)",
+            dimsValue: convertDigitsToNepali(dimensions),
+            weightLabel: "तौल",
+            weightValue: toNepaliNumber(weight) + " ग्राम",
+            mukhiLabel: "मुखी संख्या",
+            mukhiValue: nepaliMukhi,
+            shapeLabel: "आकार",
+            shapeValue: selectedShape.ne,
+            originLabel: "उत्पत्ति स्थान",
+            originValue: "नेपाल",
+            obsSectionLabel: "परीक्षण अवलोकन",
+            obsMukhiCount: toNepaliNumber(mukhi),
+            obsTextParagraph: `सुक्ष्मदर्शन यन्त्रबाट अवलोकन गर्दा, दानामा ${toNepaliNumber(mukhi)} वटा प्राकृतिक मुखीको रेखाहरू अवलोकन गरिन्छ जसमा कृत्रिम बनावट वा रासायनिक प्रयोगको कुनै प्रमाण छैन। सतहको बनावट र आन्तरिक संरचना हेर्दा रुद्राक्ष <em>Elaeocarpus ganitrus (Nepal)</em> प्रजातिको पुष्टि हुन्छ। कुनै कृत्रिम पदार्थ, रंगद्रव्य रङ्ग, वा छेडखानी पत्ता लागेन।`,
+            obsVerdictText: `मौलिकता प्रमाणित — सबै प्रमाणिकता विधि पारित। ${nepaliMukhi} रुद्राक्ष सुक्ष्मदर्शन परीक्षणद्वारा पुष्टि गरियो।`,
+            guaranteeText: "<strong>नेपाल रुद्राक्ष प्रयोगशाला ग्यारेन्टी:</strong> यदि यो रुद्राक्ष दाना कृत्रिम, नक्कल, वा गैर-प्रामाणिक साबित भएमा, पुनः जाँच पश्चात खरिद रकम फिर्ता गरिनेछ। हाम्रो प्रयोगशालाबाट प्रमाणित हरेक रुद्राक्षको लागि आजीवन आश्वासनको साथ जिम्मेवारबोध छौँ।",
+            footerBrandName: "नेपाल रुद्राक्ष प्रयोगशाला",
+            footerEmailText: "lab@nepalrudraksha.com",
+            footerPhoneText: "+977 9703712118",
+            footerAddressText: "पशुपतिनाथ, काठमाडौं, नेपाल",
+            footerWebsiteText: "www.nepalrudrakshalab.com",
+            footerCopyText: "© २०२६ नेपाल रुद्राक्ष प्रयोगशाला • मान्यता प्राप्त रुद्राक्ष परीक्षण • सबै प्रमाणपत्र अनलाइन प्रमाणित गर्न मिल्ने"
+        }
+    };
 
-    // Update observation paragraph
-    document.getElementById("obs-paragraph").innerHTML =
-        "Under high-magnification analysis, the bead exhibits " + mukhi +
-        " distinct, naturally formed mukhi lines with no evidence of artificial scoring " +
-        "or chemical treatment. Surface texture and internal structure are " +
-        "consistent with authentic <em>Elaeocarpus ganitrus</em> origin. " +
-        "No synthetic resin, pigment dyes, or tampering detected.";
+    // Helper to set element content
+    const setContent = (id, content, asHtml = false) => {
+        const el = document.getElementById(id);
+        if (el) {
+            if (asHtml) el.innerHTML = content;
+            else el.innerText = content;
+        }
+    };
 
-    // Update verdict box
-    document.getElementById("verdict-box").innerHTML =
-        '<i class="fas fa-check-circle"></i> ' +
-        "Certified Genuine — All authenticity protocols passed. " +
-        mukhi + " Mukhi Rudraksha confirmed by gemological analysis.";
+    let currentLang = 'en';
 
+    function applyLanguage(lang) {
+        const t = translations[lang];
+        if (!t) return;
+
+        // Font class toggle
+        const frame = document.getElementById('certFrame');
+        if (lang === 'ne') frame.classList.add('lang-ne');
+        else frame.classList.remove('lang-ne');
+
+        // Text fields
+        setContent("brandChipText", t.brandChipText);
+        setContent("handwrittenLogo", t.handwrittenLogo);
+        setContent("brandTagline", t.brandTagline);
+        setContent("certBadgeText", t.certBadgeText);
+        setContent("photoEvidenceLabel", t.photoEvidenceLabel);
+        setContent("specsLabel", t.specsLabel);
+        setContent("certNoLabel", t.certNoLabel);
+        setContent("certNoValue", t.certNoValue);
+        setContent("dimsLabel", t.dimsLabel);
+        setContent("dimsValue", t.dimsValue);
+        setContent("weightLabel", t.weightLabel);
+        setContent("weightValue", t.weightValue);
+        setContent("mukhiLabel", t.mukhiLabel);
+        setContent("mukhiValue", t.mukhiValue);
+        setContent("shapeLabel", t.shapeLabel);
+        setContent("shapeValue", t.shapeValue);
+        setContent("originLabel", t.originLabel);
+        setContent("originValue", t.originValue);
+        setContent("obsSectionLabel", t.obsSectionLabel);
+        setContent("obsTextParagraph", t.obsTextParagraph, true);
+        setContent("obsVerdictText", t.obsVerdictText);
+        setContent("guaranteeText", t.guaranteeText, true);
+        setContent("footerBrandName", t.footerBrandName);
+        setContent("footerEmailText", t.footerEmailText);
+        setContent("footerPhoneText", t.footerPhoneText);
+        setContent("footerAddressText", t.footerAddressText);
+        setContent("footerWebsiteText", t.footerWebsiteText);
+        setContent("footerCopyText", t.footerCopyText);
+
+        // Image labels with dynamic mukhi
+        setContent("frontImageLabel", getFrontLabel(lang, mukhi), true);
+        setContent("backImageLabel", getBackLabel(lang, mukhi), true);
+
+        currentLang = lang;
+    }
+
+    // Language buttons
+    const enBtn = document.querySelector('.lang-btn[data-lang="en"]');
+    const neBtn = document.querySelector('.lang-btn[data-lang="ne"]');
+
+    function setActiveLang(lang) {
+        if (lang === 'en') {
+            enBtn.classList.add('active');
+            neBtn.classList.remove('active');
+            applyLanguage('en');
+        } else {
+            neBtn.classList.add('active');
+            enBtn.classList.remove('active');
+            applyLanguage('ne');
+        }
+    }
+
+    if (enBtn && neBtn) {
+        enBtn.addEventListener('click', () => setActiveLang('en'));
+        neBtn.addEventListener('click', () => setActiveLang('ne'));
+    }
+
+    // Initial: English
+    setActiveLang('en');
 })();
 </script>
-
 </body>
 </html>
